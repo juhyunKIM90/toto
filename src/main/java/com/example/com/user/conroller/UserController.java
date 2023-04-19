@@ -9,7 +9,7 @@ public class UserController {
     
     @RequestMapping("/List")
     public String list() {
-        return "list";
+        return "user/list";
     }
     
 }
