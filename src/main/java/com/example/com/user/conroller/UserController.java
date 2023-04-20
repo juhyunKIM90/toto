@@ -28,4 +28,20 @@ public class UserController {
         return mv;
     }
     
+    @RequestMapping("/WriteForm")
+    public String writeForm() {
+        return "user/write";
+    }
+    
+    @RequestMapping("/Write")
+    public ModelAndView write(UserVo userVo) {
+
+        ModelAndView mv = new ModelAndView();
+
+        userService.insertUser(userVo);
+
+        mv.setViewName("redirect:/User/List");
+
+        return mv;
+    }
 }

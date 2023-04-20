@@ -18,4 +18,8 @@ public class UserService {
         return userMapper.getUserList();
     }
 
+    public void insertUser(UserVo userVo) {
+        userMapper.insertUser(userVo);
+    }
+
 }

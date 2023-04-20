@@ -9,4 +9,20 @@
        FROM  TUSER
     </select>
 
+    <insert id="insertUser">
+
+        INSERT INTO TUSER (
+              USERID
+            , PASSWD
+            , USERNAME
+            , EMAIL
+        ) VALUES (
+              #{ userid }
+            , #{ passwd }
+            , #{ username }
+            , #{ email }
+        )
+
+    </insert>
+
 </mapper>

@@ -13,4 +13,6 @@ public interface UserMapper {
 
     List<UserVo> getUserList();
 
+	void insertUser(UserVo userVo);
+
 }
