@@ -1,4 +1,4 @@
-package com.example.com.user.conroller;
+package com.example.com;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

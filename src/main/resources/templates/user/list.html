@@ -5,9 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User List</title>
 </head>
 <body>
-    
+    <table>
+        <tr>
+            <th>순서</th>
+            <th>아이디</th>
+            <th>비번</th>
+            <th>이름름</th>
+            <th>이메일</th>
+            <th>가입일</th>
+        </tr>
+        <tr th:each="user : ${userList}">
+            <td th:text="${userStat.index+1}"></td>
+            <td th:text="${user.userid}"></td>
+            <td th:text="${user.passwd}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.indate}"></td>
+        </tr>
+    </table>
 </body>
 </html>
