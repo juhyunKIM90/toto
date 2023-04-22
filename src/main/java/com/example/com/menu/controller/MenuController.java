@@ -20,7 +20,7 @@ public class MenuController {
     public ModelAndView list() {
         ModelAndView mv = new ModelAndView();
         List<MenuVo> menuList = menuService.getMenuList();
-        mv.setViewName("user/list");
+        mv.setViewName("menu/list");
         mv.addObject("menuList", menuList);
         return mv;
     }

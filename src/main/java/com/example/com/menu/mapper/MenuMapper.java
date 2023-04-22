@@ -1,4 +1,4 @@
-package com.example.com.menu.service;
+package com.example.com.menu.mapper;
 
 import java.util.List;
 
