@@ -17,4 +17,8 @@ public class MenuService {
         return menuMapper.getMenuList();
     }
 
+    public void insertMenu(MenuVo menuVo) {
+        menuMapper.insertMenu(menuVo);
+    }
+
 }

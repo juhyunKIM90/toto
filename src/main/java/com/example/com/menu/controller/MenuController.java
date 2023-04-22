@@ -25,4 +25,15 @@ public class MenuController {
         return mv;
     }
     
+    @RequestMapping("/WriteForm")
+    public String wirteform() {
+        return "menu/write";
+    }
+    @RequestMapping("/Write")
+    public ModelAndView wirte(MenuVo menuVo) {
+        ModelAndView mv = new ModelAndView();
+        menuService.insertMenu(menuVo);
+        mv.setViewName("redirect:/Menu/List");
+        return mv;
+    }
 }
