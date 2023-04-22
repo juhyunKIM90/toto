@@ -13,19 +13,8 @@ import lombok.ToString;
 @ToString
 public class MenuVo {
     // Fields
-    private int      idx;
 	private String   menu_id;
-	private String   title;
-	private String   cont;
-	private String   writer;
-	private String   regdate;
-	private int      readcount;
-	private int      bnum;
-	private int      lvl;
-	private int      step;
-	private int      nref;	
+	private String   menu_name;
+	private int      menu_seq;
 	
-	private int      delnum;
-	
-	private int      parent;
 }

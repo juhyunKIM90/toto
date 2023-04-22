@@ -13,7 +13,7 @@ public class MenuService {
     private MenuMapper menuMapper;
 
     public List<MenuVo> getMenuList() {
-        return 
+        return menuMapper.getMenuList();
     }
 
 }
