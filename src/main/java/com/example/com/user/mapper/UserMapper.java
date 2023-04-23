@@ -15,4 +15,6 @@ public interface UserMapper {
 
 	void insertUser(UserVo userVo);
 
+    UserVo getUser(String userid);
+
 }

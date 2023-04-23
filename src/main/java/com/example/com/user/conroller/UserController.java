@@ -44,4 +44,12 @@ public class UserController {
 
         return mv;
     }
+    @RequestMapping("View")
+    public ModelAndView view(String userid){
+        ModelAndView mv = new ModelAndView();
+        UserVo vo = userService.getUser( userid );
+        mv.setViewName("user/view");
+        mv.addObject("user", vo);
+        return mv;
+    }
 }

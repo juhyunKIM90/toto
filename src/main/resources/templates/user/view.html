@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정보</title>
+</head>
+<body>
+    <h2>사용자 정보</h2>
+    <table>
+        <tr>
+            <th>아이디</th>
+            <td th:text="${user.userid}"></td>
+        </tr>
+        <tr>
+            <th>암호</th>
+            <td th:text="${user.passwd}"></td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td th:text="${user.username}"></td>
+        </tr>
+        <tr>
+            <th>이메일</th>
+            <td th:text="${user.email}"></td>
+        </tr>
+        <tr>
+            <th>가입일</th>
+            <td th:text="${user.indate}"></td>
+        </tr>
+    </table>
+</body>
+</html>
