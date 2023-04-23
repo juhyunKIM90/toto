@@ -35,19 +35,12 @@ public class UserController {
     
     @RequestMapping("/Write")
     public ModelAndView write(UserVo userVo) {
-        ModelAndView mv = new ModelAndView();
-        userService.insertUser(userVo);
-        mv.setViewName("redirect:/User/List");
-        return mv;
-    }
 
-    @RequestMapping("/View")
-    public ModelAndView view(String userid) {
         ModelAndView mv = new ModelAndView();
-        UserVo vo = userService.getUser(userid);
-        System.out.println("userid: " + vo);
-        mv.setViewName("user/view");
-        mv.addObject("user", vo);
+
+        userService.insertUser(userVo);
+
+        mv.setViewName("redirect:/User/List");
 
         return mv;
     }

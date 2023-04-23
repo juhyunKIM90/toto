@@ -22,8 +22,4 @@ public class UserService {
         userMapper.insertUser(userVo);
     }
 
-    public UserVo getUser(String userid) {
-        return userMapper.getUser(userid);
-    }
-
 }

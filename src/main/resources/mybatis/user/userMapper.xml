@@ -3,23 +3,10 @@
 
 <mapper namespace="com.example.com.user.mapper.UserMapper"> 
 
-<!-- 사용자 목록 -->
     <select id="getUserList"
               resultType="com.example.com.user.vo.UserVo">
       SELECT USERID, PASSWD, USERNAME, EMAIL, INDATE
        FROM  TUSER
-    </select>
-
-<!-- 사용자 뷰 -->
-    <select id="getUser"
-            resultMap="com.example.com.user.vo.UserVo">
-        SELECT   USERID
-               , PASSWD
-               , USERNAME
-               , EMAIL
-               , TO_CHAR(INDATE, 'YYYY-MM-DD HH24:MI:SS') INDATE
-         FROM  TUSER
-         WHERE USERID = #{ userid }    
     </select>
 
     <insert id="insertUser">
@@ -37,6 +24,5 @@
         )
 
     </insert>
-    
 
 </mapper>
