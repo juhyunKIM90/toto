@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
+    <style>
+        table,th, td { border: 1px solid black;
+            border-collapse: collapse;}
+        td { width: 100px; height: 5px;}
+        td:last-child { width: 300px; text-align: center;}
+    </style>
 </head>
 <body>
     <table>
@@ -17,7 +23,7 @@
             <th>이메일</th>
             <th>가입일</th>
         </tr>
-        <tr th:each="user : ${userList}">
+        <tr th:each="user : ${userList}" th:onclick="'location.href=\''+ @{View(userid=${user.userid})} + '\''" >
             <td th:text="${userStat.index+1}"></td>
             <td th:text="${user.userid}"></td>
             <td th:text="${user.passwd}"></td>
@@ -27,4 +33,7 @@
         </tr>
     </table>
 </body>
+<script>
+    
+</script>
 </html>
