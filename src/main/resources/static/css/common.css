@@ -1,1 +1,3 @@
+button, input[type=button] { background-color: black; color: white;
+    border-radius: 5px; }
 button:hover, input[type=button]:hover { cursor: pointer;}
