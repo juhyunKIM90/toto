@@ -1,0 +1,11 @@
+CREATE TABLE TUSER (
+     USERID     VARCHAR2(12)  PRIMARY KEY 
+   , PASSWD     VARCHAR2(12)  NOT NULL 
+   , USERNAME   VARCHAR2(30)  NOT NULL
+   , EMAIL      VARCHAR2(320)
+   , INDATE     DATE          DEFAULT SYSDATE  	
+);
+
+INSERT INTO   TUSER ( USERID, PASSWD, USERNAME, EMAIL  )
+ VALUES (  'admin', '1234', '관리자', 'admin.green.com'  );
+ commit;

@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사용자 정보</title>
+    <link rel="stylesheet" href="/css/common.css">
     <style>
         #main {margin-left: 40px;}
+        .btnUser { background-color: black; color: white;
+            border-radius: 5px;
+        }
+        
     </style>
 </head>
 <body>
@@ -35,11 +40,14 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <button onclick="location.href='/User/WriteForm'" >회원가입</button>
-                    <button>수정</button>
-                    <button>삭제</button>
-                    <button>목록</button>
-                    <button>홈으로</button>
+                    <button class="btnUser" onclick="location.href='/User/WriteForm'" >회원가입</button>
+                    <button class="btnUser" th:onclick="|location.href='@{Update(userid=${user.userid})}'|" >회원수정</button>
+                    <input class="btnUser" type="button"
+                        th:onclick="|location.href='@{Delete(userid=${user.userid})}'|" value="회원삭제">
+                    <button class="btnUser" onclick="location.href='/User/List'">목록</button>
+                    <button class="btnUser" onclick="location.href='/'">홈으로</button>&nbsp;&nbsp;
+                    <button class="btnUser" style="background-color: lightblue; color: black;" 
+                        onclick="location.href='javascript:history.back();'">뒤로</button>
                 </td>
             </tr>
         </table>

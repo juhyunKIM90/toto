@@ -52,4 +52,10 @@ public class UserController {
         mv.addObject("user", vo);
         return mv;
     }
+    @RequestMapping("Delete")
+    public ModelAndView delete(String userid) {
+        ModelAndView mv = new ModelAndView("redirect:/User/List");
+        userService.deleteUser( userid );
+        return mv;
+    }
 }
