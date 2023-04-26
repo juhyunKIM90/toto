@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.com.menu.mapper.MenuMapper;
 import com.example.com.menu.vo.MenuVo;
 
-@Service
+@Service("menuService")
 public class MenuService {
     @Autowired
     private MenuMapper menuMapper;

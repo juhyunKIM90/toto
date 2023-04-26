@@ -33,7 +33,8 @@
             <th>이메일</th>
             <th>가입일</th>
         </tr>
-        <tr class="user" th:each="user : ${userList}" th:onclick="'location.href=\''+ @{View(userid=${user.userid})} + '\''" >
+        <!-- <tr class="user" th:each="user : ${userList}" th:onclick="'location.href=\''+ @{View(userid=${user.userid})} + '\''" > -->
+        <tr class="user" th:each="user : ${userList}" th:onclick="|'location.href='@{View(userid=${user.userid})}'|" >
             <td class="userIndex" id="userIndex" th:text="${userStat.index+1}"></td>
             <td th:text="${user.userid}"></td>
             <td th:text="${user.passwd}"></td>
