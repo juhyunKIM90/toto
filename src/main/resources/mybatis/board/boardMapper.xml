@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.com.board.mapper.BoardMapper">
+<mapper namespace="com.example.toto.board.mapper.BoardMapper">
     <select id="getBoardList"
-            resultType="com.example.com.board.vo.BoardVo">
+            resultType="com.example.toto.board.vo.BoardVo">
         SELECT
     IDX,
     MENU_ID,

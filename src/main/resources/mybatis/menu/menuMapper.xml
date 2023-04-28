@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.com.menu.mapper.MenuMapper">
+<mapper namespace="com.example.toto.menu.mapper.MenuMapper">
 
     <select id="getMenuList"
-            resultType="com.example.com.menu.vo.MenuVo">
+            resultType="com.example.toto.menu.vo.MenuVo">
       SELECT       MENU_ID
       	         , MENU_NAME
       	         , MENU_SEQ
@@ -29,7 +29,7 @@
      -->
      <insert id="insertMenu">
      <selectKey keyProperty="menu_id,menu_seq"
-            resultType="com.example.com.menu.vo.MenuVo"
+            resultType="com.example.toto.menu.vo.MenuVo"
             order="BEFORE">
         SELECT 'MENU'||TRIM(TO_CHAR(NVL(MAX(TO_NUMBER(SUBSTR(MENU_ID,5,2))),0)+1,'00')) MENU_ID,
                 NVL( MAX(MENU_SEQ), 0 ) + 1 MENU_SEQ
