@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/kyung.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+    <header class="header" th:fragment="headerFragment" >
+        <div class="background"></div>
+        <nav class="navbar">
+            <a href="/">Home</a>
+            <a href="/score">Menu</a>
+            <a href="/news">News</a>
+            <a href="">Client-Center</a>
+            <a href="">Help</a>
+            <a href="/loginpage">Login</a>
+            <marquee behavior="alternate" >WeleCome Green Sports</marquee>
+        </nav>
+        
+        <form action="search" class="search-bar">
+            <input type="text" placeholder="search-bar">
+            <button type="submit"><i class='bx bx-search'></i></button>
+        </form>
+        <section class="headr_menu">
+    
+            <div id="main">
+                <div id="lsidebar">
+                    <div id="lsidebar1" >
+                        <div class="hlog">
+                            <section class="login-form">
+                                <form action="">
+                                    <div class="int-area">
+                                        <h1>Login</h1>
+                                        <input type="text" name="id" id="id" autocomplete="off" required>
+                                        <br><label for="id">USER NAME</label>
+                                    </div>
+                                    <div class="int-area">
+                                        <input type="password" name="pw" id="pw" autocomplete="off" required>
+                                        <label for="pw">PASSWORD</label>
+                                    </div>
+                                    <div class="btn-area">
+                                        <button type="submit">login</button>
+                                    </div>
+                                </form>
+                                <div class="caption">
+                                    <a href="">Forgot Password?</a>
+                                    <span>/</span>
+                                    <a href="">Create An Account!</a>
+                                </div>
+                            </section>  
+                        </div>
+                    </div>
+                    <div id="lsidebar2">
+                        여긴 뭐넣지?
+                    </div>
+                </div>
+                <div id="contents"><a href="https://sports.news.naver.com/wfootball/index.nhn">본문 영역입니다.</a></div>
+                <div id="rsidebar">
+                    <div id="rsidebar1" >
+                        여긴 뭐넣지?
+                    </div>
+                    <div id="rsidebar2">
+                        여긴 뭐넣지?
+                    </div>
+                </div>
+            </div>
+        
+        </section>
+
+    </header>
+
+       
+</html>

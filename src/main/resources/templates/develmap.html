@@ -7,9 +7,11 @@
     <title>home</title>
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body th:insert="~{/fragments/header :: headerFragment}"> 
+    
     <h2>home</h2>
     <ul>
+        
         <li><a href="/User/List">사용자 목록</a></li>
         <li><a href="/User/WriteForm">사용자 등록</a></li>
         <br>

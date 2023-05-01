@@ -35,6 +35,9 @@ dependencies {
 	// implementation 'com.oracle.database.ha:ons'
 	// implementation 'com.oracle.database.ha:simplefan'
 
+	// jsoup 의존성 추가 // 뉴스 크롤링
+	implementation 'org.jsoup:jsoup:1.15.3'
+
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
