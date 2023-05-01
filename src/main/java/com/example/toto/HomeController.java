@@ -12,10 +12,10 @@ public class HomeController {
         return "home_start";
     }
     
-   @RequestMapping("/homekyung")
-   public String homekyung(){
+   @RequestMapping("/home")
+   public String homepage(){
 
-    return "homekyung";
+    return "home";
    }
    @RequestMapping("/loginpage")
    public String loginpage(){
