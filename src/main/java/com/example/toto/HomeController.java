@@ -14,7 +14,6 @@ public class HomeController {
     
    @RequestMapping("/home")
    public String homepage(){
-
     return "home";
    }
    @RequestMapping("/loginpage")
@@ -22,4 +21,6 @@ public class HomeController {
 
     return "loginpage";
    }
+
+   
 }
