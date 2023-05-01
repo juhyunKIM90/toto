@@ -25,4 +25,36 @@ FROM
 ORDER BY
     IDX DESC
     </select>
+    <insert id="insertBoard">
+        INSERT INTO BOARD(
+            IDX,
+            MENU_ID,
+            TITLE,
+            CONT,
+            WRITER,
+            READCOUNT,
+            BNUM,
+            LVL,
+            STEP,
+            NREF,
+            DELNUM,
+            PARENT
+        )
+        VALUES
+        (
+            (SELECT NVL(MAX(IDX), 0)+1 FROM BOARD),
+            'MENU01',
+            #{ title },
+            #{ cont },
+            'TESTER',
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        )
+
+    </insert>
 </mapper>

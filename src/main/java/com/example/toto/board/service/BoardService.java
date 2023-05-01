@@ -11,11 +11,15 @@ import com.example.toto.board.vo.BoardVo;
 @Service("boardService")
 public class BoardService {
     @Autowired
-    private BoardMapper BoardMappber;
+    private BoardMapper boardMappber;
 
     public List<BoardVo> getBoardList() {
-        List<BoardVo> boardList = BoardMappber.getBoardList();
+        List<BoardVo> boardList = boardMappber.getBoardList();
         return boardList;
+    }
+
+    public void insertBoard(BoardVo boardVo) {
+        boardMappber.insertBoard(boardVo);
     }
 
 }

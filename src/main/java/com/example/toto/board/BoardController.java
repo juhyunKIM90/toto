@@ -24,8 +24,8 @@ public class BoardController {
         ModelAndView mv = new ModelAndView();
 
         // 메뉴
-        List<MenuVo> menuList = menuService.getMenuList();
-        System.out.println(menuList);
+        //List<MenuVo> menuList = menuService.getMenuList();
+        //System.out.println(menuList);
 
 
         // BoardList - 게시글 목록
@@ -33,9 +33,26 @@ public class BoardController {
 
         mv.setViewName("board/list");
         mv.addObject("boardList", boardList);
-        mv.addObject("menuList", menuList);
-        System.out.println("fuck : " + boardList);
-        System.out.println("nope" + menuList);
+        //mv.addObject("menuList", menuList);
+        //System.out.println("nope" + menuList);
+        return mv;
+    }
+    
+    @RequestMapping("/WriteForm")
+    public ModelAndView writeform(BoardVo boardVo) {
+        ModelAndView mv = new ModelAndView("board/write");
+        // 답글처리해야함
+
+        return mv;
+    }
+    
+    @RequestMapping("/Write")
+    public ModelAndView write(BoardVo boardVo) {
+        ModelAndView mv = new ModelAndView("redirect:/Board/List");
+        
+        // 게시글 등록
+        boardService.insertBoard(boardVo);
+        
         return mv;
     }
 }
