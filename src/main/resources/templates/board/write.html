@@ -1,52 +1,157 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/translations/ko.js"></script>
+    <!-- <script src="js/editor.js" type="module"></script> -->
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/translations/ko.js"></script> -->
     <style>
-        table, tr, td { border: 1px solid black; border-collapse: collapse;}
-        input[type=text] { width: 900px; }
-        tr { height: 40px;}
-        tr:nth-child(2) { height: 500px;}
-        td:nth-child(1) { padding-right: 90px; }
-        .ck.ck-editor {	max-width: 100%; }
-	    .ck-editor__editable { min-height: 500px; }
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        input[type=text] {
+            width: 900px;
+        }
+
+        tr {
+            height: 40px;
+        }
+
+        tr:nth-child(2) {
+            height: 500px;
+        }
+
+        td:nth-child(1) {
+            padding-right: 90px;
+        }
+
+        .ck.ck-editor {
+            max-width: 100%;
+        }
+
+        .ck-editor__editable {
+            min-height: 500px;
+        }
     </style>
 </head>
+
 <body>
-    <h2>글싸기</h2><hr>
-    <table>
-        <tr>
-            <td><b>제목<b></td>
-            <td><input type="text" name="" id=""></td>
-        </tr>
-        <tr id="conttr">
-            <td><b>내용<b></td>
-            <td><textarea id="cktextarea"></textarea></td>
-        </tr>
-        <tr>
-            <td><b>첨부파일<b></td>
-            <td><input type="file" name="" id=""></td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: right;">
-                <button>글쓰기</button>
-                <button>취소</button>
-            </td>
-        </tr>
-    </table>
+    <h2>글쓰기</h2>
+    <hr>
+    <form action="/Board/Write" method="post"
+        enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td><b>제목<b></td>
+                <td><input type="text" name="title" th:value="${title}"></td>
+            </tr>
+            <tr id="conttr">
+                <td><b>내용<b></td>
+                <td><textarea id="cktextarea" name="cont" th:text="${cont}"></textarea></td>
+            </tr>
+            <tr>
+                <td><b>첨부파일<b></td>
+                <td><input type="file" name="" id=""></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;">
+                    <input type="submit" value="작성">
+                    <button onclick="location='/Board/List'">목록으로</button>
+                </td>
+            </tr>
+        </table>
+    </form>
 </body>
 <script>
+    let CustomUploadAdapter = function (loader, path, fn_resolve) {
+        this.constructor = function ( loader ) {
+            this.loader = loader;
+            this.path = path;
+            this.fn_resolve = fn_resolve;
+        };
+        this.upload = function () {
+            return new Promise(function (resolve, reject) {
+                this.xhr = ajax_file_upload({
+                    loader: loader,
+                    resolve: resolve,
+                    reject: reject,
+                    files: [loader.file],
+                    path: path,
+                    fn_progress: function (e) {
+                        e.lengthComputable && (loader.uploadTotal = e.total, loader.uploaded = e.loaded);
+                    },
+                    fn_success: function (e) {
+                        resolve(fn_resolve && fn_resolve(e));
+                    },
+                    fn_error: function (e) {
+                        reject("upload fail =>" + `${loader.file.name}.`);
+                    },
+                    fn_abort: reject
+                });
+            });
+        };
+        this.abort = function () {
+            return this.xhr.abort && this.xhr.abort();
+        }
+    };
+
+
+// ====================================================================
     ClassicEditor
-        .create( document.querySelector( '#cktextarea' ), {
+        .create(document.querySelector('#cktextarea'), {
             language: "ko"
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
+        })
+        .then(function (editor) {
+            editoro = editor;
+            editor.plugins.get("FileRepository").createUploadAdapter = function (loader) {
+                return new CustomUploadAdapter(loader, "/images/board/press", function (result) {
+                    let fileSeq = isEmpty(result[0]) ? "noimage" : result[0];
+                    let imageUrl = window.location.protocol + "//" + window.location.host + "/image/" + fileSeq;
+                    return { "default": imageUrl };
+                });
+            };
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+// ==================================================================================
+function ajax_file_upload(p) {		
+if (!p.files || !p.loader || !p.path) return new XMLHttpRequest;		
+let formData = new FormData();
+for (let idx in p.files) {
+    formData.append("uploadfile", p.files[idx]);
+}
+formData.append("path", p.path);		
+return $.ajax({
+    url: '/api/common/fileupload',
+    processData: false,
+    contentType: false,
+    data: formData,
+    type: 'POST',
+    onprogress: function (e) {
+        p.fn_progress && p.fn_progress(e);
+    },
+    success: function(e){
+        p.fn_success && p.fn_success(e);
+    },
+    error: function (e) {
+        p.fn_error && p.fn_error;
+    },
+    abort: function (e) {
+        p.fn_abort && p.fn_abort(e);
+    }
+});
+}
+        
 </script>
+
 </html>

@@ -23,6 +23,9 @@ ext {
 }
 
 dependencies {
+	// 파일업로드
+	implementation 'commons-io:commons-io:2.11.0'
+
 	// Oracle Wallet 방식 접속을 위한 의존성 4개
 	implementation 'com.oracle.ojdbc:ucp:19.3.0.0'
 	implementation 'com.oracle.database.security:oraclepki'
@@ -31,6 +34,9 @@ dependencies {
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
 	// implementation 'com.oracle.database.ha:ons'
 	// implementation 'com.oracle.database.ha:simplefan'
+
+	// jsoup 의존성 추가 // 뉴스 크롤링
+	implementation 'org.jsoup:jsoup:1.15.3'
 
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
