@@ -9,15 +9,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.toto.board.service.BoardService;
 import com.example.toto.board.vo.BoardVo;
-import com.example.toto.menu.service.MenuService;
-import com.example.toto.menu.vo.MenuVo;
 
 @Controller
 @RequestMapping("/Board")
 public class BoardController {
     @Autowired
     private BoardService boardService;
-    private MenuService  menuService;
+    //private MenuService  menuService;
     
     @RequestMapping("/List")
     public ModelAndView list() {
