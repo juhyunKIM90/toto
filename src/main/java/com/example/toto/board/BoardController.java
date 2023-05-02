@@ -11,13 +11,13 @@ import com.example.toto.board.service.BoardService;
 import com.example.toto.board.vo.BoardVo;
 
 @Controller
-@RequestMapping("/Board")
+//@RequestMapping("/Board")
 public class BoardController {
     @Autowired
     private BoardService boardService;
     //private MenuService  menuService;
     
-    @RequestMapping("/List")
+    @RequestMapping("/Board/List")
     public ModelAndView list() {
         ModelAndView mv = new ModelAndView();
 
@@ -36,7 +36,7 @@ public class BoardController {
         return mv;
     }
     
-    @RequestMapping("/WriteForm")
+    @RequestMapping("/Board/WriteForm")
     public ModelAndView writeform(BoardVo boardVo) {
         ModelAndView mv = new ModelAndView("board/write");
         // 답글처리해야함
@@ -44,7 +44,7 @@ public class BoardController {
         return mv;
     }
     
-    @RequestMapping("/Write")
+    @RequestMapping("/Board/Write")
     public ModelAndView write(BoardVo boardVo) {
         ModelAndView mv = new ModelAndView("redirect:/Board/List");
         
@@ -53,4 +53,6 @@ public class BoardController {
         
         return mv;
     }
+
+
 }

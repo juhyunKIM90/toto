@@ -25,7 +25,11 @@ ext {
 dependencies {
 	// 파일업로드
 	implementation 'commons-io:commons-io:2.11.0'
-
+	implementation 'commons-fileupload:commons-fileupload:1.5'
+	
+	// josn 리턴을 위한 gson
+	implementation 'com.google.code.gson:gson:2.10.1'
+	
 	// Oracle Wallet 방식 접속을 위한 의존성 4개
 	implementation 'com.oracle.ojdbc:ucp:19.3.0.0'
 	implementation 'com.oracle.database.security:oraclepki'
