@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+    <link rel="stylesheet" href="css/cboard2.css">
+</head>
+<body>
+<h1>게시판</h1>
+<table>
+  <thead>
+    <tr>
+      <th>번호</th>
+      <th>제목</th>
+      <th>작성자</th>
+      <th>작성일자</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="post, status : ${posts}">
+      <td th:text="${status.index + 1}"></td>
+      <td th:text="${post.title}"></td>
+      <td th:text="${post.author}"></td>
+      <td th:text="${post.createdAt}"></td>
+    </tr>
+  </tbody>
+</table>
+<a href="/new" class="btn btn-primary">글 등록</a>
+</body>
+</html>

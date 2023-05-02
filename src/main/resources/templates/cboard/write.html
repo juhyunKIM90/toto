@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+</head>
+<body>
+<h1>게시판</h1>
+<form method="post" action="/cboard/writeForm">
+    <input type="text" name="content">
+    <button type="submit">작성</button>
+</form>
+<hr>
+<ul>
+    <li th:each="post : ${posts}" th:text="${post}"></li>
+</ul>
+</body>
+</html>
