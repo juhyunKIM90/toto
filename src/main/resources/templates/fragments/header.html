@@ -19,6 +19,32 @@
             <a href="/loginpage">Login</a>
             <marquee behavior="alternate" >WeleCome Green Sports</marquee>
         </nav>
+        <h1 id="clock" style="color:white; margin-top: 10px; margin-right: 10px;" >clock</h1>
+    
+        <script>
+            var Target = document.getElementById("clock");
+            function clock() {
+                var time = new Date();
+                
+                var year = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                var day = time.getDay();
+                var week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    
+                var hours = time.getHours();
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+            
+    
+                Target.innerText = 
+                `${year}.${month + 1}. ${date} ${week[day]} ` +
+                `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+                    
+            }
+            clock();
+            setInterval(clock, 1000); // 1초마다 실행
+        </script>
         
         <form action="search" class="search-bar">
             <input type="text" placeholder="search-bar">
@@ -33,37 +59,37 @@
                             <section class="login-form">
                                 <form action="">
                                     <div class="int-area">
-                                        <h1>Login</h1>
+                                        <h1 class="logf">LOGIN</h1>
                                         <input type="text" name="id" id="id" autocomplete="off" required>
                                         <br><label for="id">USER NAME</label>
                                     </div>
                                     <div class="int-area">
                                         <input type="password" name="pw" id="pw" autocomplete="off" required>
-                                        <label for="pw">PASSWORD</label>
+                                        <br><label for="pw">PASSWORD</label>
                                     </div>
-                                    <div class="btn-area">
-                                        <button type="submit">login</button>
+                                    <div class="btn-area" style="padding-bottom: 10px;">
+                                        <button type="submit" style="width: 4cm;height: 0.8cm; font-size: 20px;font-weight: bold; padding-bottom: 10px;">login</button>
                                     </div>
                                 </form>
                                 <div class="caption">
                                     <a href="">Forgot Password?</a>
-                                    <span>/</span>
+                                    <span>/</span><br>
                                     <a href="">Create An Account!</a>
                                 </div>
                             </section>  
                         </div>
                     </div>
                     <div id="lsidebar2">
-                        여긴 뭐넣지?
+                        뉴스
                     </div>
                 </div>
                 <div id="contents"><a href="https://sports.news.naver.com/wfootball/index.nhn">본문 영역입니다.</a></div>
                 <div id="rsidebar">
                     <div id="rsidebar1" >
-                        여긴 뭐넣지?
+                        회원목록
                     </div>
                     <div id="rsidebar2">
-                        여긴 뭐넣지?
+                       라이브채팅?
                     </div>
                 </div>
             </div>
