@@ -55,8 +55,11 @@ public class BoardController {
     }
 
     @RequestMapping("/Board/View")
-    public ModelAndView view() {
+    public ModelAndView view(String idx) {
         ModelAndView mv = new ModelAndView("board/view");
+        BoardVo boardVo = boardService.getBoard( idx );
+        System.out.println("받은보드" + boardVo);
+        mv.addObject("boardVo", boardVo);
         return mv;
     }
 

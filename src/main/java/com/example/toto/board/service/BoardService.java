@@ -22,4 +22,9 @@ public class BoardService {
         boardMappber.insertBoard(boardVo);
     }
 
+    public BoardVo getBoard(String idx) {
+        BoardVo boardVo = boardMappber.getBoard(idx);
+        return boardVo;
+    }
+
 }

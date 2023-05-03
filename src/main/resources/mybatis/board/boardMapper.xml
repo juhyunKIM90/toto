@@ -25,6 +25,17 @@ FROM
 ORDER BY
     IDX DESC
     </select>
+
+    <select id="getBoard"
+        resultType="com.example.toto.board.vo.BoardVo">
+
+        SELECT TITLE,
+               CONT
+         FROM  BOARD
+         WHERE IDX = #{ idx }
+
+    </select>
+
     <insert id="insertBoard">
         INSERT INTO BOARD(
             IDX,
