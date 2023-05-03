@@ -31,8 +31,10 @@ public class PdsController {
 		
 		// 내부경로로 저장
 		String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-		String fileRoot = contextRoot+"resources/fileupload/";
+		//String fileRoot = contextRoot+"resources/fileupload/"; 스프링부트는 getRealPath안됨(톰캣내부로들어감)
+		String fileRoot = "src/main/resources/fileupload/";
         System.out.println("ㅅㅂ"+fileRoot);
+		System.out.println("multi = " + multipartFile);
 		
 		String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
 		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
@@ -42,7 +44,7 @@ public class PdsController {
 		try {
 			InputStream fileStream = multipartFile.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-			jsonObject.addProperty("url", "/summernote/resources/fileupload/"+savedFileName); // contextroot + resources + 저장할 내부 폴더명
+			jsonObject.addProperty("url", "fileupload/"+savedFileName); // contextroot + resources + 저장할 내부 폴더명
 			jsonObject.addProperty("responseCode", "success");
 				
 		} catch (IOException e) {
@@ -51,6 +53,7 @@ public class PdsController {
 			e.printStackTrace();
 		}
 		String a = jsonObject.toString();
+		System.out.println("어딧니?"+a);
 		return a;
 	}
 }

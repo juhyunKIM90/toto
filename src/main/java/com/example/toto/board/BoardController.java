@@ -54,5 +54,11 @@ public class BoardController {
         return mv;
     }
 
+    @RequestMapping("/Board/View")
+    public ModelAndView view() {
+        ModelAndView mv = new ModelAndView("board/view");
+        return mv;
+    }
+
 
 }
