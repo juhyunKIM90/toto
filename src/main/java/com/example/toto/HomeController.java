@@ -22,5 +22,11 @@ public class HomeController {
     return "loginpage";
    }
 
+   @RequestMapping("/userlist")
+   public String userlist(){
+
+    return "/user/list";
+   }
+
    
 }
