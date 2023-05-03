@@ -42,6 +42,11 @@ dependencies {
 	// jsoup 의존성 추가 // 뉴스 크롤링
 	implementation 'org.jsoup:jsoup:1.15.3'
 
+	// chat
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'org.springframework.kafka:spring-kafka'
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
+
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
