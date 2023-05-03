@@ -373,7 +373,7 @@ a {
 
 #main #rsidebar #rsidebar1{
     flex-grow: 1;  background: white;
-    border: 2px solid #5d5d5d;
+    border: 2px solid #5d5d5d; margin: 0;
 }
 #main #rsidebar #rsidebar2{
     margin-top:10px;
@@ -452,16 +452,3 @@ iframe {
 
    margin-left: 0px;
 }
-
-
-table,th, td { border: 1px solid black;
-    border-collapse: collapse;}
-td { width: 100px; height: 5px;}
-td:last-child { width: 300px; text-align: center;}
-.user:hover { background-color: #f8f8;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: 1s;
-}
-tr:first-child {background-color: #808080;}
-.user:nth-child(2n+1) { background-color: #d3d3d3;}

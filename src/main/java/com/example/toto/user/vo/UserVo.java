@@ -14,7 +14,6 @@ import lombok.ToString;
 public class UserVo {
 
     //Fields
-    	
     private String userid;
     private String passwd;	
     private String username;

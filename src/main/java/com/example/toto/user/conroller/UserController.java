@@ -16,6 +16,20 @@ public class UserController {
     @Autowired
     UserService userService;
     
+    @RequestMapping("/homeList")
+    public ModelAndView homelist() {
+
+        ModelAndView mv = new ModelAndView();
+
+        List<UserVo> userList = userService.getUserList();
+
+        mv.setViewName("user/homeList");
+       
+        mv.addObject("userList", userList);
+        return mv;
+    }
+
+    
     @RequestMapping("/List")
     public ModelAndView list() {
 
@@ -24,9 +38,27 @@ public class UserController {
         List<UserVo> userList = userService.getUserList();
 
         mv.setViewName("user/List");
+       
         mv.addObject("userList", userList);
         return mv;
     }
+    
+    public ModelAndView header() {
+
+        ModelAndView mv = new ModelAndView();
+
+        List<UserVo> userList = userService.getUserList();
+
+        mv.setViewName("/fragments/header");
+       
+        mv.addObject("userList", userList);
+        return mv;
+    }
+
+
+
+
+
     
     @RequestMapping("/WriteForm")
     public String writeForm() {
