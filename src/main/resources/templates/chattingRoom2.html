@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Websocket Tutorial</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-  <link rel="stylesheet" href="/css/chat.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'><link rel="stylesheet" href="/css/chat.css">
+
 </head>
 <body>
 <div id="container">
@@ -21,13 +20,13 @@
     </main>
 </div>
 <!-- partial -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js'></script><script src="/js/script.js"> </script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script  src="/js/chat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
 </body>
 <script th:inline="javascript">
 
-    const username =  [[${name}]];
+    const username = [[${name}]];
 
     const websocket = new WebSocket("ws://localhost:8083/ws/chat");
     websocket.onmessage = onMessage;

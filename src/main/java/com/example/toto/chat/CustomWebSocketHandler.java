@@ -38,7 +38,7 @@ public class CustomWebSocketHandler extends TextWebSocketHandler {
             }
         }
         if(isSessionAlive){
-            producer.produceMessage("sportgreen", payload);
+            producer.produceMessage("greensports", payload);
         }
     }
 

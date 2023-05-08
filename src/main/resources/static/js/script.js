@@ -57,3 +57,4 @@ registerLink.addEventListener('click', ()=> {
 loginLink.addEventListener('click', ()=> {
     logregBox.classList.remove('active');
 });
+

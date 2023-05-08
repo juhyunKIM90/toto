@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class ChatController {
 
-    @GetMapping("/error")
+    @GetMapping("/chat")
     public String index(){
         return "error";
     }

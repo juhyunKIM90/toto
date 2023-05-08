@@ -1,9 +1,8 @@
 package com.example.toto.chat;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
-
-import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
@@ -16,8 +15,8 @@ public class Producer {
     }
 
     public void produceMessage(String topic, String payload) {
-        //log.info("Producer TOPIC : " + topic);
-        //log.info("Producer PAYLOAD : " + payload);
+        log.info("Producer TOPIC : " + topic);
+        log.info("Producer PAYLOAD : " + payload);
         kafkaTemplate.send(topic, payload);
     }
 }
