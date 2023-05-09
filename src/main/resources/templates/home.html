@@ -8,10 +8,16 @@
     <link rel="stylesheet" href="/css/kyung.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
 </head>
 <header th:replace="~{/fragments/header :: headerFragment}"></header>
 <body>
-    
+    <div hidden id="wow">
+        <div id="wowin">와우</div>
+    </div>
     
 </body>
+<script>
+    $('#contents').append($('#wowin'));
+</script>
 </html>

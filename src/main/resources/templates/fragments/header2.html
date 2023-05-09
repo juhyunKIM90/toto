@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    
-</head>
-<header class="header" th:fragment="headerFragment" >
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
         <link rel="stylesheet" href="/css/kyung.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         
+        
+    </head>
+
+    <!-- Header -->
+    <header class="header" th:fragment="hdfr" >
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <link rel="stylesheet" href="/css/header.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <div class="background"></div>
         <nav class="navbar">
             <a href="/">Home</a>
@@ -23,7 +27,7 @@
             <marquee behavior="alternate" >WeleCome Green Sports</marquee>
         </nav>
         <h1 id="clock" style="color:white; margin-top: 10px; margin-right: 10px;" >clock</h1>
-    
+        
         <script>
             var Target = document.getElementById("clock");
             function clock() {
@@ -34,27 +38,31 @@
                 var date = time.getDate();
                 var day = time.getDay();
                 var week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-    
+                
                 var hours = time.getHours();
                 var minutes = time.getMinutes();
                 var seconds = time.getSeconds();
-            
-    
+                
+                
                 Target.innerText = 
                 `${year}.${month + 1}. ${date} ${week[day]} ` +
                 `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-                    
+                
             }
             clock();
             setInterval(clock, 1000); // 1초마다 실행
-        </script>
+            </script>
         
         <form action="search" class="search-bar">
             <input type="text" placeholder="search-bar">
             <button type="submit"><i class='bx bx-search'></i></button>
         </form>
+    </header>
+    <!-- /Header -->
+
+
         <section class="headr_menu">
-    
+            
             <div id="main">
                 <div id="lsidebar">
                     <div id="lsidebar1" >
@@ -88,13 +96,13 @@
                 </div>
                 <div id="contents">
                     
-                    <!-- <iframe width="560" height="315" 
-                    src="https://www.youtube.com/embed/uYRkhx-3w7c" 
+                    <iframe width="560" height="315" 
+                    src="hhttps://code.jquery.com/jquery.min.js/uYRkhx-3w7c" 
                     title="YouTube video player" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
-                    ></iframe> --> </div>
+                    ></iframe></div>
                 <div id="rsidebar">
                     <div id="rsidebar1" >
                         <iframe width="280" height="650" 
@@ -109,7 +117,6 @@
         
         </section>
 
-    </header>
 
        
 </html>
