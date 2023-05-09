@@ -13,9 +13,9 @@ html {
 
 body{
     width: 100%;
-    height: 100vh;
+    height: 120vh;
     background: url('/img/bg2.jpg') no-repeat center  ;
-    background-size: auto;
+    background-size: cover;
     background-position: center;
 }
 
@@ -363,7 +363,7 @@ a {
 #main {
     padding: 25px 12.5%;
     display: grid;
-    grid-template-columns:1fr 3fr 1fr;    
+    grid-template-columns:1fr 3fr 1fr; 
     
 }
 

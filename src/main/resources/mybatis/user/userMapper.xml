@@ -7,6 +7,7 @@
               resultType="com.example.toto.user.vo.UserVo">
       SELECT USERID, PASSWD, USERNAME, EMAIL, INDATE
        FROM  TUSER
+       ORDER BY INDATE ASC
     </select>
 
     <select id="getUser"
@@ -16,8 +17,8 @@
    	         , USERNAME
    	         , EMAIL
    	         , TO_CHAR(INDATE, 'YYYY-MM-DD HH24:MI:SS')  INDATE
-   	    FROM   TUSER
-   	    WHERE  USERID = #{ userid } 
+   	    FROM   TUSER 
+   	    WHERE  USERID = #{ userid }
     </select>
 
     <insert id="insertUser">

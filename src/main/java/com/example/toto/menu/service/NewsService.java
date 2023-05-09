@@ -16,7 +16,7 @@ import com.example.toto.menu.vo.News;
 
 @Service
 public class NewsService {
-    private static String News_URL = "https://www.hkbs.co.kr/news/articleList.html?sc_sub_section_code=S2N21&view_type=sm";
+    private static String News_URL = "https://www.hkbs.co.kr/news/articleList.html?sc_section_code=S1N1&view_type=sm";
 
     @PostConstruct
     public List<News> getNewsDatas() throws IOException {
