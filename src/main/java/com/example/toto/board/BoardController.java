@@ -62,6 +62,14 @@ public class BoardController {
         mv.addObject("boardVo", boardVo);
         return mv;
     }
+    
+    @RequestMapping("/Board/UpdateForm")
+    public ModelAndView updateForm (String idx) {
+        ModelAndView mv = new ModelAndView("board/update");
+        BoardVo boardVo = boardService.getBoard( idx );
+        mv.addObject("boardVo", boardVo);
+        return mv;
+    }
 
 
 }

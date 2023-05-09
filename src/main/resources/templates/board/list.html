@@ -9,6 +9,7 @@
     <!-- <link rel="stylesheet" href="/css/common.css"> -->
     <style>
         table, tr, th, td { border: 1px solid black; border-collapse: collapse;}
+        .board td:hover { cursor: pointer;}
     </style>
     
 </head>
@@ -31,7 +32,7 @@
                     <th>날짜</th>
                     <th>조회수</th>
                 </tr>
-                <tr th:each="board : ${boardList}" th:onclick="|location.href='@{View(idx=${board.idx})}'|">
+                <tr class="board" th:each="board : ${boardList}" th:onclick="|location.href='@{View(idx=${board.idx})}'|">
                     <td th:text="${ board.idx }"></td>
                     <td th:text="${ board.title }"></td>
                     <td th:text="${ board.writer }"></td>

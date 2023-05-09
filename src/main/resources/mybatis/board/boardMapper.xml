@@ -30,7 +30,8 @@ ORDER BY
         resultType="com.example.toto.board.vo.BoardVo">
 
         SELECT TITLE,
-               CONT
+               CONT,
+               REGDATE
          FROM  BOARD
          WHERE IDX = #{ idx }
 

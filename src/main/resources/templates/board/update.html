@@ -55,18 +55,19 @@
 </head>
 
 <body>
-    <h2>글쓰기</h2>
+    <p hidden id="hidcont" th:text="${boardVo.cont}"></p>
+    <h2>글수정</h2>
     <hr>
     <form action="/Board/Write" method="post"
         enctype="multipart/form-data">
         <table>
             <tr>
                 <td><b>제목<b></td>
-                <td><input type="text" name="title" th:value="${title}"></td>
+                <td><input type="text" name="title" th:value="${boardVo.title}"></td>
             </tr>
             <tr id="conttr">
                 <td><b>내용<b></td>
-                <td id="textar" name="cont" th:text="${cont}"></td>
+                <td id="textar" name="cont"></td>
             </tr>
             <tr>
                 <td><b>첨부파일<b></td>
@@ -74,7 +75,7 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: right;">
-                    <input type="submit" value="작성">
+                    <input type="submit" value="수정">
                     <button onclick="location='/Board/List'">목록으로</button>
                 </td>
             </tr>
@@ -126,6 +127,7 @@ let setting = {
             }
          };
         $('#textar').summernote(setting);
+        $('#textar').summernote('code', $('#hidcont').text());
         });
         
         function uploadSummernoteImageFile(file, el) {

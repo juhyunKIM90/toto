@@ -6,17 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery.min.js"></script>
+    <style>
+        #title { text-align: left; margin-top: 50px;}
+        #cont { margin: 50px 10px 50px 10px; }
+    </style>
 </head>
 <body>
-    <p th:text="${boardVo.title}"></p>
-    <hr>
-    <p id="cont" hidden th:text="${boardVo.cont}"></p>
-    <div id="main"></div>
+    <header th:replace="~{/fragments/header :: headerFragment}"></header>
+    <div hidden id="wrap">
+        <div id="content">
+            <h1 id="title" th:text="${boardVo.title}"></h1>
+            <hr>
+            <p style="text-align: right; margin-right: 10px;" th:text="|작성일 : ${boardVo.regdate}|"></p>
+            <p id="hidcont" hidden th:text="${boardVo.cont}"></p>
+            <div id="cont"></div>
+            <span th:text="${param.idx}"></span>
+            <hr>
+            <input type="button" th:onclick="|location.href='@{UpdateForm(idx=${param.idx})}'|" value="수정">
+            <input type="button" value="삭제">
+            <input type="button" value="목록">
+        </div>
+    </div>
     
     
 </body>
 <script>
-    let fuck = $('#cont').text();
-    $('#main').append(fuck);
+    // let fuck = $('#hidcont').text();
+    let fuck = document.getElementById('hidcont').innerText;
+    $('#cont').append(fuck);
+    document.querySelector('#contents').append(document.querySelector('#content'));
 </script>
 </html>
