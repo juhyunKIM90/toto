@@ -21,20 +21,26 @@
     }
 
 </style>
-<header th:replace="~{/fragments/header :: headerFragment}"></header>
 <body>
-    <div id="contents">
-        <table class= "table">
-            <tr>
-                <th>이미지</th>
-                <th>제목</th>
-            </tr>
-            <tr th:each="news : ${news} ">
-                <td><a th:href="${news.url}"><img class="img"th:src="${news.image}"></a></td>
-                <td><a th:href="${news.url}"><span th:text="${news.subject}"></span></a></td>
+    <header th:replace="~{/fragments/header :: headerFragment}"></header>
+    <div hidden id="wrap">
+
+        <div id="content">
+            <table class= "table">
+                <tr>
+                    <th>이미지</th>
+                    <th>제목</th>
+                </tr>
+                <tr th:each="news : ${news} ">
+                    <td><a th:href="${news.url}"><img class="img"th:src="${news.image}"></a></td>
+                    <td><a th:href="${news.url}"><span th:text="${news.subject}"></span></a></td>
                 </a>
             </tr>
         </table>
     </div>
+</div>
 </body>
+<script>
+    document.querySelector('#contents').append(document.querySelector('#content'));
+</script>
 </html>

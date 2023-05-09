@@ -13,32 +13,37 @@
     
 </head>
 <body>
-    <!-- <th:block th:replace="include/menus :: MenusHeader"></th:block>
-    <div id="main"> -->
-        
-        <h2 th:text="|${boardList[0].menu_id} 게시판|"></h2>
-        <table>
-            <tr>
-                <td colspan="5">
-                    <a href="/Board/WriteForm">글쓰기</a>
-                </td>
-            </tr>
-                <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>글쓴이</th>
-                <th>날짜</th>
-                <th>조회수</th>
-            </tr>
-            <tr th:each="board : ${boardList}" th:onclick="|location.href='@{View(idx=${board.idx})}'|">
-                <td th:text="${ board.idx }"></td>
-                <td th:text="${ board.title }"></td>
-                <td th:text="${ board.writer }"></td>
-                <td th:text="${ board.regdate }"></td>
-                <td th:text="${ board.readcount }"></td>
-            </tr>
-        </table>
-    </div>
+    <div th:replace="~{/fragments/header :: headerFragment}"></div>
+    <div hidden id="wrap">
 
+        <div id="mainlist">
+            <h2 th:text="|${boardList[0].menu_id} 게시판|"></h2>
+            <table>
+                <tr>
+                    <td colspan="5">
+                        <a href="/Board/WriteForm">글쓰기</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>글쓴이</th>
+                    <th>날짜</th>
+                    <th>조회수</th>
+                </tr>
+                <tr th:each="board : ${boardList}" th:onclick="|location.href='@{View(idx=${board.idx})}'|">
+                    <td th:text="${ board.idx }"></td>
+                    <td th:text="${ board.title }"></td>
+                    <td th:text="${ board.writer }"></td>
+                    <td th:text="${ board.regdate }"></td>
+                    <td th:text="${ board.readcount }"></td>
+                </tr>
+            </table>
+        </div>
+        
+    </div>
 </body>
+<script>
+    document.querySelector('#contents').append(document.querySelector('#mainlist'));
+</script>
 </html>
