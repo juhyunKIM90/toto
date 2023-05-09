@@ -17,15 +17,10 @@ public class ChatController {
 
     @GetMapping("/chat/{id}")
     public String chattingRoom(@PathVariable String id, HttpSession session, Model model){
-        if(id.equals("guest")){
-            model.addAttribute("name", "guest");
-        }else if(id.equals("master")){
-            model.addAttribute("name", "master");
-        }else if(id.equals("loose")){
-            model.addAttribute("name", "loose");
-        }else {
-            return "error";
-        }
+           
+        model.addAttribute("name",id);
+        
+        
         return "chattingRoom2";
     }
 }
