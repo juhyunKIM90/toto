@@ -23,7 +23,7 @@
 FROM
     BOARD
 ORDER BY
-    IDX DESC
+    IDX ASC
     </select>
 
     <select id="getBoard"
