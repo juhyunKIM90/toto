@@ -24,7 +24,7 @@ public class CustomWebSocketHandler extends TextWebSocketHandler {
     public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         String payload = message.getPayload();
 
-        if(numSet.size()>=3){
+        if(numSet.size()>=10){
             WebSocketSession oldSession = numSet.iterator().next();
             oldSession.sendMessage(new TextMessage("채팅이 종료되었습니다."));
             numSet.remove(numSet.iterator().next());
@@ -38,7 +38,7 @@ public class CustomWebSocketHandler extends TextWebSocketHandler {
             }
         }
         if(isSessionAlive){
-            producer.produceMessage("sportgreen", payload);
+            producer.produceMessage("greensports", payload);
         }
     }
 
