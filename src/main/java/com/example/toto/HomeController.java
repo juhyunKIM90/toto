@@ -28,5 +28,10 @@ public class HomeController {
     return "/user/list";
    }
 
+   @RequestMapping("/fuck")
+   public String fuck() {
+    return "develmap";
+   }
+
    
 }
