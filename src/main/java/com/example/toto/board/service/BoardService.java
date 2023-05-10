@@ -27,4 +27,8 @@ public class BoardService {
         return boardVo;
     }
 
+    public void updateBoard(BoardVo boardVo) {
+        boardMappber.updateBoard(boardVo);
+    }
+
 }

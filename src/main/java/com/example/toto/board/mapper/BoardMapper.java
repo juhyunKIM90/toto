@@ -17,4 +17,6 @@ public interface BoardMapper {
 
     BoardVo getBoard(String idx);
 
+    void updateBoard(BoardVo boardVo);
+
 }

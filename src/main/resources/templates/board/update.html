@@ -58,8 +58,7 @@
     <p hidden id="hidcont" th:text="${boardVo.cont}"></p>
     <h2>글수정</h2>
     <hr>
-    <form action="/Board/Write" method="post"
-        enctype="multipart/form-data">
+    <form th:action="@{Update(idx=${boardVo.idx})}" method="post" enctype="multipart/form-data">
         <table>
             <tr>
                 <td><b>제목<b></td>
@@ -67,7 +66,7 @@
             </tr>
             <tr id="conttr">
                 <td><b>내용<b></td>
-                <td id="textar" name="cont"></td>
+                <td><textarea  id="textar" name="cont"></textarea></td>
             </tr>
             <tr>
                 <td><b>첨부파일<b></td>
@@ -75,7 +74,8 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: right;">
-                    <input type="submit" value="수정">
+                    <!-- <input type="submit" value="수정"> -->
+                    <input id="subBtn" type="button" value="수정" onclick="goModify(this.form)"/>
                     <button onclick="location='/Board/List'">목록으로</button>
                 </td>
             </tr>
@@ -127,7 +127,10 @@ let setting = {
             }
          };
         $('#textar').summernote(setting);
-        $('#textar').summernote('code', $('#hidcont').text());
+        // $('#textar').summernote('code', $('#hidcont').text());
+        // $('#textar').summernote('code', "[[${boardVo.cont}]]"); // html엔티티로 들어옴
+        $('#textar').summernote('code', '[(${boardVo.cont})]');
+        
         });
         
         function uploadSummernoteImageFile(file, el) {
@@ -145,6 +148,13 @@ let setting = {
 				}
 			});
 		}
+
+
+        // ---------------------------------
+
+        function goModify(frm) {
+            frm.submit();
+        }
 </script>
 
 </html>

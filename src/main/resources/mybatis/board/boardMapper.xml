@@ -23,14 +23,16 @@
 FROM
     BOARD
 ORDER BY
-    IDX ASC
+    IDX DESC
     </select>
 
     <select id="getBoard"
         resultType="com.example.toto.board.vo.BoardVo">
 
-        SELECT TITLE,
+        SELECT IDX,
+               TITLE,
                CONT,
+               WRITER,
                REGDATE
          FROM  BOARD
          WHERE IDX = #{ idx }
@@ -69,4 +71,10 @@ ORDER BY
         )
 
     </insert>
+    <update id="updateBoard">
+        UPDATE BOARD
+        SET   TITLE = #{title},
+              CONT  = #{cont}
+        WHERE IDX = #{idx}
+    </update>
 </mapper>

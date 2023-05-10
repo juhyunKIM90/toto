@@ -71,5 +71,12 @@ public class BoardController {
         return mv;
     }
 
+    @RequestMapping("/Board/Update")
+    public ModelAndView update(BoardVo boardVo) {
+        System.out.println("가져왓니??" + boardVo);
 
+        ModelAndView mv = new ModelAndView("redirect:/Board/List");
+        boardService.updateBoard(boardVo);
+        return mv;
+    }
 }

@@ -20,7 +20,6 @@
             <p style="text-align: right; margin-right: 10px;" th:text="|작성일 : ${boardVo.regdate}|"></p>
             <p id="hidcont" hidden th:text="${boardVo.cont}"></p>
             <div id="cont"></div>
-            <span th:text="${param.idx}"></span>
             <hr>
             <input type="button" th:onclick="|location.href='@{UpdateForm(idx=${param.idx})}'|" value="수정">
             <input type="button" value="삭제">
