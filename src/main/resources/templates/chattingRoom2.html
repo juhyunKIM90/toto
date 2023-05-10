@@ -28,7 +28,7 @@
 
     const username = [[${name}]];
 
-    const websocket = new WebSocket("ws://localhost:8083/ws/chat");
+    const websocket = new WebSocket("ws://192.168.0.197:8083/ws/chat");
     websocket.onmessage = onMessage;
     websocket.onopen = onOpen;
     websocket.onclose = onClose;
