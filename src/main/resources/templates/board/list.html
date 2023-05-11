@@ -9,10 +9,19 @@
     <!-- <link rel="stylesheet" href="/css/common.css"> -->
     <style>
         table {
-            width: 100%;
+            width: 90%; margin: 5%; border-spacing: 5px; margin-top: 1%;
         }
-        table, tr, th, td { border: 1px solid black; border-collapse: collapse;}
+        table, tr, th, td { border: 1px solid black; border: 1px solid gray;
+      border-radius: 15px;}
+      tr {
+        margin: 80px;
+      }  
+      
+      td {       
+            border-radius: 15px;
+        }
         .board td:hover { cursor: pointer; color: #2F73C0;}
+        .boardt td:hover { cursor: pointer; color: red;}
     </style>
     
 </head>
@@ -23,7 +32,7 @@
         <div id="mainlist">
             <h2 th:text="|${boardList[0].menu_id} 게시판|"></h2>
             <table>
-                <tr>
+                <tr  class="boardt">
                     <td colspan="5">
                         <a href="/Board/WriteForm">글쓰기</a>
                     </td>

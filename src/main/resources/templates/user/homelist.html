@@ -12,7 +12,8 @@
         table,th, td {  padding: 0; margin : auto; border: 0px solid black;
             border-collapse: collapse; font-size: small;}
 
-           table,th,td{ border-right:1px solid black;
+           table,th,td,tr{
+      border-radius: 3px;
            }
         td { width: 120px; height: 5px; text-align: center;}
         td:last-child { width: 300px; text-align: center;}
@@ -21,8 +22,12 @@
             opacity: 0.6;
             transition: 1s;
         }
-        tr:first-child {background-color: #808080;}
-        .user:nth-child(2n+1) { background-color: #d3d3d3;}
+        tr:first-child {color:#9CC3D5;background-color: #0063B2;}
+        .user:nth-child(2n+1) { background-color: #9CC3D5;}
+
+        body::-webkit-scrollbar{
+  display: none;
+}
     </style>
     <script src="https://code.jquery.com/jquery.min.js"></script>
 </head>
@@ -37,11 +42,9 @@
         <tr class="user" th:each="user : ${userList}">
             <td class="userIndex" id="userIndex" th:text="${userStat.index+1}"></td>
             <td th:text="${user.userid}"></td>
-            <td th:text="${user.indate}"></td>
-            
+            <td th:text="${user.indate}"></td> 
         </tr>
     </table>
-    <hr>
 </body>
 <script>
 
