@@ -25,7 +25,7 @@ html, body {
     left: 0;
     width: 30px;
     height: 30px;
-    background: #FED750;
+    background: rgb(2, 173, 2);
     box-shadow: 112.5px 112.5px 20px #000;
     -webkit-animation: move 2s ease-in-out infinite both;
             animation: move 2s ease-in-out infinite both;
@@ -53,14 +53,14 @@ html, body {
   .box:before {
     top: 100%;
     left: 0;
-    background: #E6A32F;
+    background: green;
     transform-origin: center top;
     transform: rotateX(-90deg);
   }
   .box:after {
     top: 0;
     left: 100%;
-    background: #C87932;
+    background: rgb(2, 92, 2);
     transform-origin: center left;
     transform: rotateY(90deg);
   }
