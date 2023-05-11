@@ -12,12 +12,13 @@
 </head>
 <header th:replace="~{/fragments/header :: headerFragment}"></header>
 <body>
-    <div hidden id="wow">
-        <div id="wowin">와우</div>
+    <div id="wow">
+        <iframe width="840" height="990" 
+        frameborder=0 framespacing=0 marginheight=0 marginwidth=0 scrolling=yes vspace=0 src="/wow"></iframe>
     </div>
     
 </body>
 <script>
-    $('#contents').append($('#wowin'));
+    document.querySelector('#contents').append(document.querySelector('#wow'));
 </script>
 </html>

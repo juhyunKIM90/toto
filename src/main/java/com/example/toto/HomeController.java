@@ -33,5 +33,9 @@ public class HomeController {
     return "develmap";
    }
 
+   @RequestMapping("/wow")
+   public String wow() {
+    return "wow";
+   }
    
 }
