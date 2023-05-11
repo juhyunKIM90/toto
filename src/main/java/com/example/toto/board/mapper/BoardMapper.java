@@ -19,4 +19,6 @@ public interface BoardMapper {
 
     void updateBoard(BoardVo boardVo);
 
+    void deleteBoard(String idx);
+
 }

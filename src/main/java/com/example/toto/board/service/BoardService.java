@@ -31,4 +31,8 @@ public class BoardService {
         boardMappber.updateBoard(boardVo);
     }
 
+    public void deleteBoard(String idx) {
+        boardMappber.deleteBoard(idx);
+    }
+
 }

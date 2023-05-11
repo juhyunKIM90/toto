@@ -77,4 +77,8 @@ ORDER BY
               CONT  = #{cont}
         WHERE IDX = #{idx}
     </update>
+
+    <delete id="deleteBoard">
+        DELETE FROM BOARD WHERE IDX = #{idx}
+    </delete>
 </mapper>

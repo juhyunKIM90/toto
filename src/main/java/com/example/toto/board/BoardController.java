@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.toto.board.service.BoardService;
@@ -63,6 +64,8 @@ public class BoardController {
         return mv;
     }
     
+
+    // 게시글 수정 ---------------------------------------------------------------------------
     @RequestMapping("/Board/UpdateForm")
     public ModelAndView updateForm (String idx) {
         ModelAndView mv = new ModelAndView("board/update");
@@ -77,6 +80,15 @@ public class BoardController {
 
         ModelAndView mv = new ModelAndView("redirect:/Board/List");
         boardService.updateBoard(boardVo);
+        return mv;
+    }
+
+    // 게시글 삭제 ---------------------------------------------------------------------------
+    @RequestMapping("/Board/Delete")
+    public ModelAndView delete(String idx) {
+        System.out.println("idx는 뭐고? " + idx);
+        ModelAndView mv = new ModelAndView("redirect:/Board/List");
+        boardService.deleteBoard(idx);
         return mv;
     }
 }
