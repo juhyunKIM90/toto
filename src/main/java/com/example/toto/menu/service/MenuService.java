@@ -21,4 +21,16 @@ public class MenuService {
         menuMapper.insertMenu(menuVo);
     }
 
+    public MenuVo getMenu(String menu_id) {
+        MenuVo menuVo = menuMapper.getMenu(menu_id);
+        return menuVo;
+    }
+
+    public void deleteMenu(String menu_id) {
+        menuMapper.deleteMenu(menu_id);
+    }
+
+    public void updateMenu(MenuVo menuVo) {
+        menuMapper.updateMenu(menuVo);
+    }
 }

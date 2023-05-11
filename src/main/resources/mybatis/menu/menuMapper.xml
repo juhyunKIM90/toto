@@ -12,6 +12,15 @@
        ORDER BY	   MENU_SEQ  
     </select>
 
+    <select id="getMenu"
+            resultType="com.example.toto.menu.vo.MenuVo">
+      SELECT       MENU_ID
+      	         , MENU_NAME
+      	         , MENU_SEQ
+       FROM        MENUS
+       WHERE MENU_ID = #{menu_id}
+    </select>
+
 <!-- 
     <insert id="insertMenu">
          INSERT INTO
@@ -38,5 +47,15 @@
      INSERT INTO MENUS ( MENU_ID, MENU_NAME, MENU_SEQ )
        VALUES (  #{menu_id}, #{menu_name}, #{menu_seq}   )
      </insert>
+     <update id="updateMenu">
+        UPDATE MENUS
+         SET   MENU_NAME = #{menu_name}
+         WHERE MENU_ID   = #{menu_id}
+
+     </update>
+
+     <delete id="deleteMenu">
+        DELETE FROM MENUS WHERE MENU_ID = #{menu_id}
+     </delete>
 
 </mapper>

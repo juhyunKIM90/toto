@@ -20,69 +20,8 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <!--  -->
 <script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
-    <style>
-        table,
-        tr,
-        td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-
-        input[type=text] {
-            width: 900px;
-        }
-
-        tr {
-            height: 40px;
-        }
-
-        tr:nth-child(2) {
-            height: 500px;
-        }
-
-        td:nth-child(1) {
-            padding-right: 90px;
-        }
-
-        .ck.ck-editor {
-            max-width: 100%;
-        }
-
-        .ck-editor__editable {
-            min-height: 500px;
-        }
-    </style>
-</head>
-
-<body>
-    <h2>글쓰기</h2>
-    <hr>
-    <form action="/Board/Write" method="post"
-        enctype="multipart/form-data">
-        <table>
-            <tr>
-                <td><b>제목<b></td>
-                <td><input type="text" name="title" th:value="${title}"></td>
-            </tr>
-            <tr id="conttr">
-                <td><b>내용<b></td>
-                <td><textarea  id="textar" name="cont"></textarea></td>
-            </tr>
-            <tr>
-                <td><b>첨부파일<b></td>
-                <td><input type="file" name="" id=""></td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: right;">
-                    <input type="submit" value="작성">
-                    <button onclick="location='/Board/List'">목록으로</button>
-                </td>
-            </tr>
-        </table>
-    </form>
-</body>
 <script>
-	// 툴바생략
+    	// 툴바생략
 	$(document).ready(function() {
 
 let toolbar = [
@@ -127,6 +66,70 @@ let setting = {
          };
         $('#textar').summernote(setting);
         });
+</script>
+    <style>
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        input[type=text] {
+            width: 900px;
+        }
+
+        tr {
+            height: 40px;
+        }
+
+        tr:nth-child(2) {
+            height: 500px;
+        }
+
+        td:nth-child(1) {
+            padding-right: 90px;
+        }
+
+        .ck.ck-editor {
+            max-width: 100%;
+        }
+
+        .ck-editor__editable {
+            min-height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>글쓰기</h2>
+    <hr>
+    <form action="/Board/Write" method="post"
+        enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td><b>제목<b></td>
+                <td><input id="title" type="text" name="title" th:value="${title}"></td>
+            </tr>
+            <tr id="conttr">
+                <td><b>내용<b></td>
+                <td><textarea  id="textar" name="cont"></textarea></td>
+            </tr>
+            <tr>
+                <td><b>첨부파일<b></td>
+                <td><input type="file" name="" id=""></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;">
+                    <input type="submit" value="작성">
+                    <button onclick="location='/Board/List'">목록으로</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script>
+
         
         function uploadSummernoteImageFile(file, el) {
 			data = new FormData();
@@ -143,6 +146,15 @@ let setting = {
 				}
 			});
 		}
+
+        document.querySelector('input[value="작성"]').onclick = function() {
+            if(document.querySelector('#title').textContent.trim() == ''){
+                alert('제목을 작성하지 않았습니다.');
+                return false;
+            }
+        }
+
+
 </script>
 
 </html>
