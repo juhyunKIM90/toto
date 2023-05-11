@@ -78,7 +78,7 @@ public class BoardController {
     public ModelAndView update(BoardVo boardVo) {
         System.out.println("가져왓니??" + boardVo);
 
-        ModelAndView mv = new ModelAndView("redirect:/Board/List");
+        ModelAndView mv = new ModelAndView("redirect:/Board/View?idx=" + boardVo.getIdx());
         boardService.updateBoard(boardVo);
         return mv;
     }
