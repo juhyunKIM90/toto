@@ -267,7 +267,7 @@ body{
     text-decoration: underline;
 }
 
-.btn{
+.btn:not(#contents *){
     width: 100%;
     height: 45px;
     background:blanchedalmond ;
