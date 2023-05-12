@@ -14,12 +14,37 @@
         
         <div class="background"></div>
         <nav class="navbar">
-            <a href="/home">Home</a>
-            <a href="/Board/List">Board</a>
+            <ul>
+                <span onclick="location.href='/home'">Home</span>
+            </ul>
+            <ul>
+                <span id="comu">Community</span>
+                <li class="liBoard" style="display: none;"><a href="/Board/List">자유게시판</a></li>
+            </ul>
+            <ul>
+                <span onclick="location.href='/news'">News</span>
+            </ul>
+            <ul>
+                <span onclick="location.href='/Client'">Client-Center</span>
+            </ul>
+            <ul>
+                <span onclick="location.href='/userlist'">Help</span>
+            </ul>
+            <ul>
+                <span onclick="location.href='/loginpage'">Login</span>
+            </ul>
+
+
+            <!-- <a href="/home">Home</a>
+            <a id="BoardList" href="/Board/List">Community
+                <a href="">ggg</a>
+            </a>
             <a href="/news">News</a>
             <a href="">Client-Center</a>
             <a href="/userlist">Help</a>
-            <a href="/loginpage">Login</a>
+            <a href="/loginpage">Login</a> -->
+
+
             <marquee behavior="alternate" >WeleCome Green Sports</marquee>
         </nav>
         <h1 id="clock" style="color:white; margin-top: 10px; margin-right: 10px;" >clock</h1>
@@ -107,6 +132,18 @@
             </div>
         
         </section>
+        <script>
+            document.querySelector('#comu').addEventListener("click", function() {
+                this.classList.toggle("active");
+                let liBoardEl = document.querySelector('.liBoard');
+                if( liBoardEl.style.display == "block" ){
+                    liBoardEl.style.display = "none";
+                } else {
+                    liBoardEl.style.display = "block"
+                }
+            });
+            
+        </script>
 
     </header>
 
