@@ -19,19 +19,20 @@
             </ul>
             <ul>
                 <span id="comu">Community</span>
-                <li class="liBoard" style="display: none;"><a href="/Board/List">자유게시판</a></li>
+                <li class="liBoard" style="display: none;"><a href="/Board/List">자유게시판dd</a></li>
+                <li class="liBoard" style="display: block;" th:each="menu : ${#servletContext.getAttribute('menuList')}"><a href="/Board/List" th:text="|${menu.menu_name}ㅅㅄㅂ|"></a></li>
             </ul>
             <ul>
-                <span onclick="location.href='/news'">News</span>
+                <a href="/news">News</a>
             </ul>
             <ul>
-                <span onclick="location.href='/Client'">Client-Center</span>
+                <a href="">Client-Center</a>
             </ul>
             <ul>
-                <span onclick="location.href='/userlist'">Help</span>
+                <a href="/userlist">Help</a>
             </ul>
             <ul>
-                <span onclick="location.href='/loginpage'">Login</span>
+                <a href="/loginpage">Login</a>
             </ul>
 
 
