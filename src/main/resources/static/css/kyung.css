@@ -7,6 +7,8 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+a { cursor: pointer;}
+
 li{ list-style: none;}
 
 html {
@@ -488,4 +490,9 @@ h1{
 iframe {
 
    margin-left: 0px;
+}
+
+#boardDiv a:hover { 
+    transform: translateY(0);
+    opacity: 1;
 }
