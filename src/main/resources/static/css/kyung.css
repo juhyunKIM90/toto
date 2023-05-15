@@ -7,6 +7,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+a { cursor: pointer;}
+
+li{ list-style: none;}
+
 html {
     overflow-y: scroll;
 }
@@ -57,6 +61,39 @@ body{
     transform: translateY(0);
     opacity: 1;
 }
+
+.navbar ul{
+    float: left;
+}
+.navbar span{
+    position: relative;
+    font-size: 20px;
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 30px;
+}
+
+.navbar span::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: aliceblue;
+    border-radius: 5px;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: .5s;
+}
+
+.navbar span:hover{
+    transform: translateY(0);
+    opacity: 1;
+    cursor: pointer;
+}
+
 .search-bar{
     width: 250px;
     height: 45px;
@@ -267,7 +304,7 @@ body{
     text-decoration: underline;
 }
 
-.btn{
+.btn:not(#contents *){
     width: 100%;
     height: 45px;
     background:blanchedalmond ;
@@ -453,4 +490,9 @@ h1{
 iframe {
 
    margin-left: 0px;
+}
+
+#boardDiv a:hover { 
+    transform: translateY(0);
+    opacity: 1;
 }

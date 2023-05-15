@@ -25,4 +25,5 @@ public class BoardVo {
     private String nref;
     private String delnum;
     private String parent;
+    private String menu_name;
 }

@@ -3,9 +3,9 @@
 <mapper namespace="com.example.toto.board.mapper.BoardMapper">
     <select id="getBoardList"
             resultType="com.example.toto.board.vo.BoardVo">
-        SELECT
-    IDX,
-    MENU_ID,
+    SELECT
+    B.IDX,
+    B.MENU_ID,
     TITLE,
     CONT,
     WRITER,
@@ -19,11 +19,12 @@
     STEP,
     NREF,
     DELNUM,
-    PARENT
+    PARENT,
+    M.MENU_NAME
 FROM
-    BOARD
+    BOARD B LEFT JOIN MENUS M ON B.MENU_ID = M.MENU_ID
 ORDER BY
-    IDX DESC
+    B.IDX DESC
     </select>
 
     <select id="getBoard"
@@ -79,6 +80,6 @@ ORDER BY
     </update>
 
     <delete id="deleteBoard">
-        DELETE FROM BOARD WHERE IDX = #{idx}
+        DELETE BOARD WHERE IDX = #{ idx }
     </delete>
 </mapper>

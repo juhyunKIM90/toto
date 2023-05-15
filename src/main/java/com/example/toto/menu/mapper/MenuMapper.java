@@ -15,4 +15,10 @@ public interface MenuMapper {
 
     void insertMenu(MenuVo menuVo);
 
+    MenuVo getMenu(String menu_id);
+
+    void deleteMenu(String menu_id);
+
+    void updateMenu(MenuVo menuVo);
+
 }

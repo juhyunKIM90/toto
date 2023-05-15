@@ -36,4 +36,28 @@ public class MenuController {
         mv.setViewName("redirect:/Menu/List");
         return mv;
     }
+
+    @RequestMapping("/UpdateForm")
+    public ModelAndView updateForm(String menu_id) {
+        ModelAndView mv = new ModelAndView("menu/update");
+        MenuVo menuVo = menuService.getMenu(menu_id);
+        System.out.println("겟메뉴" + menuVo);
+        mv.addObject("menuVo", menuVo);
+        return mv;
+    }
+
+    @RequestMapping("/Update")
+    ModelAndView update(MenuVo menuVo) {
+        ModelAndView mv = new ModelAndView("redirect:/Menu/List");
+        menuService.updateMenu(menuVo);
+        return mv;
+    }
+    
+    @RequestMapping("/Delete")
+    ModelAndView delete(String menu_id) {
+        System.out.println("메뉴삭제" + menu_id);
+        ModelAndView mv = new ModelAndView("redirect:/Menu/List");
+        menuService.deleteMenu(menu_id);
+        return mv;
+    }
 }
