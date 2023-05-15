@@ -32,22 +32,12 @@ ORDER BY
     <select id="getBoard"
         resultType="com.example.toto.board.vo.BoardVo">
 
-        SELECT
-            IDX,
-            MENU_ID,
-            TITLE,
-            CONT,
-            WRITER,
-            REGDATE,
-            READCOUNT,
-            BNUM,
-            LVL,
-            STEP,
-            NREF,
-            DELNUM,
-            PARENT
-        FROM
-            BOARD
+        SELECT IDX,
+               TITLE,
+               CONT,
+               WRITER,
+               REGDATE
+         FROM  BOARD
          WHERE IDX = #{ idx }
 
     </select>
@@ -70,7 +60,7 @@ ORDER BY
         VALUES
         (
             (SELECT NVL(MAX(IDX), 0)+1 FROM BOARD),
-            #{ menu_id },
+            'MENU01',
             #{ title },
             #{ cont },
             'TESTER',

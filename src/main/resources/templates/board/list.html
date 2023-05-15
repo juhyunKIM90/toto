@@ -30,12 +30,11 @@
     <div hidden id="wrap">
 
         <div id="mainlist">
-            <h2 th:text="${menu.menu_name}"></h2>
+            <h2 th:text="|${boardList[0].menu_name} 게시판|"></h2>
             <table>
                 <tr  class="boardt">
                     <td colspan="5">
-                        <!-- <a href="/Board/WriteForm">글쓰기</a> -->
-                        <a th:href="@{/Board/WriteForm(menu_id=${param.menu_id})}">글쓰기</a>
+                        <a href="/Board/WriteForm">글쓰기</a>
                     </td>
                 </tr>
                 <tr>
@@ -45,7 +44,7 @@
                     <th>날짜</th>
                     <th>조회수</th>
                 </tr>
-                <tr class="board" th:each="board : ${boardList}" th:onclick="|location.href='@{View(idx=${board.idx},menu_id=${param.menu_id})}'|">
+                <tr class="board" th:each="board : ${boardList}" th:onclick="|location.href='@{View(idx=${board.idx})}'|">
                     <td th:text="${ board.idx }"></td>
                     <td th:text="${ board.title }"></td>
                     <td th:text="${ board.writer }"></td>
