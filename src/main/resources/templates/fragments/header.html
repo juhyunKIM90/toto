@@ -24,7 +24,8 @@
             <a id="comu">Community</a>
             <div id="boardDiv" style="display: none;position: absolute;">
                 <li th:each="menu : ${#servletContext.getAttribute('menuList')}">
-                    <a style="text-shadow:1px 1px 1px #000;" href="/Board/List" th:text="${menu.menu_name}"></a>
+                    <a style="text-shadow:1px 1px 1px #000;" th:href="@{/Board/List(menu_id=${menu.menu_id})}" th:text="${menu.menu_name}"></a>
+                    <!-- <a style="text-shadow:1px 1px 1px #000;" href="/Board/List" th:text="${menu.menu_name}"></a> -->
                 </li>
             </div>
         </ul>

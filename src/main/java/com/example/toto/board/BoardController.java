@@ -18,16 +18,18 @@ public class BoardController {
     //private MenuService  menuService;
     
     @RequestMapping("/Board/List")
-    public ModelAndView list() {
+    public ModelAndView list(String menu_id) {
         ModelAndView mv = new ModelAndView();
 
         // 메뉴
         //List<MenuVo> menuList = menuService.getMenuList();
         //System.out.println(menuList);
 
+        System.out.println("키미노메뉴아디와? " + menu_id);
+
 
         // BoardList - 게시글 목록
-        List<BoardVo> boardList = boardService.getBoardList();
+        List<BoardVo> boardList = boardService.getBoardList(menu_id);
 
         mv.setViewName("board/list");
         mv.addObject("boardList", boardList);

@@ -23,6 +23,8 @@
     M.MENU_NAME
 FROM
     BOARD B LEFT JOIN MENUS M ON B.MENU_ID = M.MENU_ID
+WHERE
+    B.MENU_ID = #{menu_id}
 ORDER BY
     B.IDX DESC
     </select>
