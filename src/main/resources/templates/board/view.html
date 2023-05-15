@@ -36,9 +36,9 @@
             <p id="hidcont" hidden th:text="${boardVo.cont}"></p>
             <div id="cont"></div>
             <hr><br>
-            <input type="button" th:onclick="|location.href='@{UpdateForm(idx=${param.idx})}'|" value="수정">
+            <input type="button" th:onclick="|location.href='@{UpdateForm(idx=${param.idx},menu_id=${param.menu_id})}'|" value="수정">
             <input type="button" value="삭제">
-            <input type="button" onclick="location.href='/Board/List'" value="목록">
+            <input type="button" th:onclick="|location.href='@{List(menu_id=${param.menu_id})}'|" value="목록">
         </div>
     </div>
     
@@ -52,7 +52,7 @@
     $('input[value="삭제"]').click(function (){
         if(confirm('게시글을 정말 삭제하시겠습니까?') == true ) {
             alert('게시글을 삭제 하였습니다.');
-            location.href="/Board/Delete?idx=[[${param.idx}]]";
+            location.href="/Board/Delete?idx=[[${param.idx}]]&menu_id=[[${param.menu_id}]]";
         } else {
             alert('취소 했습니다.');
             return;
