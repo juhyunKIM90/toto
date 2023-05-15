@@ -154,23 +154,14 @@
 
     </section>
     <script>
-        // document.querySelector('#comu').addEventListener("click", function() {
-        //     this.classList.toggle("active");
-        //     let liBoardEl = document.querySelector('.liBoard');
-        //     if( liBoardEl.style.display == "block" ){
-        //         liBoardEl.style.display = "none";
-        //     } else {
-        //         liBoardEl.style.display = "block"
-        //     }
-        // });
-
-        let comuEl = $('#comu');
+        let hd$ = jQuery.noConflict(); // 다른 html jquery 랑 충돌일어나서 바꿈
+        let comuEl = hd$('#comu');
 
         comuEl.click(function () {
-            var targetSubMenu = $(this).next("#boardDiv");
+            var targetSubMenu = hd$(this).next("#boardDiv");
 
             for (var i = 0; i < comuEl.length; i++) {
-                if ($(this).text() == comuEl[i].innerText) {
+                if (hd$(this).text() == comuEl[i].innerText) {
                     if (targetSubMenu.is(":visible")) {
                         for (let j = 0; j < targetSubMenu.length; j++) {
                             targetSubMenu.slideUp();
@@ -184,7 +175,7 @@
                         }
                     }
                 } else {
-                    $(comuEl[i]).next(".liBoard").css("display", "none");
+                    hd$(comuEl[i]).next(".liBoard").css("display", "none");
                 }
             }
         });

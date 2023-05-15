@@ -91,6 +91,11 @@
                         <td><b>내용<b></td>
                         <td><textarea id="textar" name="cont"></textarea></td>
                     </tr>
+                    <tr hidden>
+                        <td colspan="2">
+                            <input type="text" name="menu_id" id="menu_id" th:value="${param.menu_id}">
+                        </td>
+                    </tr>
                     <tr>
                         <td colspan="2" style="text-align: right;">
                             <input type="submit" value="작성">
@@ -124,8 +129,13 @@
 
     document.querySelector('input[value="작성"]').onclick = function () {
         let title_text = document.querySelector('#title').value;
+        let textar_text = document.querySelector('#textar').value;
         if (title_text.trim() == '') {
             alert('제목을 작성하지 않았습니다.');
+            return false;
+        }
+        if (textar_text.trim() == '') {
+            alert('내용을을 작성하지 않았습니다.');
             return false;
         }
     }

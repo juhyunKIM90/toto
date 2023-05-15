@@ -84,7 +84,7 @@
         <div id="content">
             <h2>글수정</h2>
             <hr>
-            <form th:action="@{Update(idx=${boardVo.idx})}" method="post" enctype="multipart/form-data">
+            <form th:action="@{Update(idx=${boardVo.idx},menu_id=${boardVo.menu_id})}" method="post" enctype="multipart/form-data">
                 <table>
                     <tr>
                         <td><b>제목<b></td>
@@ -97,7 +97,8 @@
                     <tr>
                         <td colspan="2" style="text-align: right;">
                             <input type="submit" value="수정">
-                            <input type="button" onclick="location.href='/Board/List'" value="목록">
+                            <input type="button" th:onclick="|location.href='@{List(menu_id=${param.menu_id})}'|" value="목록">
+                            <!-- <input type="button" onclick="location.href='/Board/List'" value="목록"> -->
                         </td>
                     </tr>
                 </table>
@@ -128,8 +129,21 @@
 
     document.querySelector('input[value="수정"]').onclick = function () {
         let title_text = document.querySelector('#title').value;
+        let textar_text = document.querySelector('#textar').value;
         if (title_text.trim() == '') {
             alert('제목을 작성하지 않았습니다.');
+            return false;
+        }
+        if (textar_text.trim() == '') {
+            alert('내용을을 작성하지 않았습니다.');
+            return false;
+        }
+        if(title_text == '[(${boardVo.title})]') {
+            alert('제목에 변경사항이 없습니다.');
+            return false;
+        }
+        if(textar_text == '[(${boardVo.cont})]') {
+            alert('내용에 변경사항이 없습니다.');
             return false;
         }
     }
