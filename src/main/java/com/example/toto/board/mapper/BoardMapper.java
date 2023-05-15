@@ -11,7 +11,7 @@ import com.example.toto.board.vo.BoardVo;
 @Mapper
 public interface BoardMapper {
 
-    List<BoardVo> getBoardList();
+    List<BoardVo> getBoardList(String menu_id);
 
     void insertBoard(BoardVo boardVo);
 

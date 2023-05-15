@@ -13,8 +13,8 @@ public class BoardService {
     @Autowired
     private BoardMapper boardMappber;
 
-    public List<BoardVo> getBoardList() {
-        List<BoardVo> boardList = boardMappber.getBoardList();
+    public List<BoardVo> getBoardList(String menu_id) {
+        List<BoardVo> boardList = boardMappber.getBoardList(menu_id);
         return boardList;
     }
 
