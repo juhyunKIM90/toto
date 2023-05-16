@@ -79,6 +79,10 @@
                     <div th:if="${session.user}">
                         <span style="text-align: right;" th:text="|${session.user.username}님 반갑습니다.|"></span>
                     </div>
+                    <div th:if="${session.user == null}">
+                        <span style="text-align: right;">Guest님 반갑습니다.</span>
+                    </div>
+                    
                 </div>
                 <div style="order: 4;">
                     <h1 id="clock" style="text-align: center; color:white;">clock</h1>
@@ -120,8 +124,15 @@
                             </div>
                         </div>
                         <div id="lsidebar2">
-                            <iframe width="280" height="500" frameborder=0 framespacing=0 marginheight=0 marginwidth=0
-                                scrolling=yes vspace=0 src="http://192.168.0.197:8083/chat/JeaDragon"></iframe>
+                            <div th:if="${session.user}">
+                                <iframe width="280" height="500" frameborder=0 framespacing=0 marginheight=0 marginwidth=0
+                                    scrolling=yes vspace=0 th:src="@{'http://192.168.0.197:8083/chat/' + ${session.user.username}}"></iframe>
+                            </div>
+                            <div th:if="${session.user == null}">
+                                <iframe width="280" height="500" frameborder=0 framespacing=0 marginheight=0 marginwidth=0
+                                    scrolling=yes vspace=0 src="http://192.168.0.197:8083/chat/Guest"></iframe>
+                            </div>
+                            
                         </div>
                     </div>
                     <div id="contents" style="order: 2;overflow: scroll;"></div>
