@@ -9,55 +9,147 @@
 
 
 </head>
-<header class="header" th:fragment="headerFragment">
+<header class="header" th:fragment="headerFragment" style="display: flex; justify-content: center;">
     <link rel="stylesheet" href="/css/kyung.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.jquery.com/jquery.min.js"></script>
+    <style>
+        .headerLayout {
+            display: grid;
+            grid-template-columns: 850px 1fr;
+            grid-template-rows: 30px 100px;
+        }
 
-    <div class="background"></div>
-    <nav class="navbar">
-        <ul>
-            <a onclick="location.href='/home'">Home</a>
-        </ul>
+        .mainLayout {
+            display: grid;
+            grid-template-columns: 400px 1500px 400px;
+            grid-template-rows: 900px;
+            column-gap: 10px;
+        }
+    </style>
+    <th:block class="background"></th:block> <!-- background End -->
 
-        <ul>
-            <a id="comu">Community</a>
-            <div id="boardDiv" style="display: none;position: absolute;">
-                <li th:each="menu : ${#servletContext.getAttribute('menuList')}">
-                    <a style="text-shadow:1px 1px 1px #000;" th:href="@{/Board/List(menu_id=${menu.menu_id})}" th:text="${menu.menu_name}"></a>
-                    <!-- <a style="text-shadow:1px 1px 1px #000;" href="/Board/List" th:text="${menu.menu_name}"></a> -->
-                </li>
-            </div>
-        </ul>
+        <div class="wrapLayout" style="width: 1600px;">
+            <div class="headerLayout"> <!-- headerLayout Start -->
+                <div style="grid-row-start: 1; grid-row-end: 3;">
 
-        <ul>
-            <a href="/news">News</a>
-        </ul>
-        <ul>
-            <a href="">Client-Center</a>
-        </ul>
-        <ul>
-            <a href="/userlist">Help</a>
-        </ul>
-        <ul>
-            <a th:href="@{/hello}">Login</a>
-        </ul>
+                    <ul>
+                        <a onclick="location.href='/home'">Home</a>
+                    </ul>
+
+                    <ul>
+                        <a id="comu">Community</a>
+                        <div id="boardDiv" style="display: none;">
+                            <li th:each="menu : ${#servletContext.getAttribute('menuList')}">
+                                <a style="text-shadow:1px 1px 1px #000;"
+                                    th:href="@{/Board/List(menu_id=${menu.menu_id})}" th:text="${menu.menu_name}"></a>
+                            </li>
+                        </div>
+                    </ul>
+
+                    <ul>
+                        <a href="/news">News</a>
+                    </ul>
+                    <ul>
+                        <a href="">Client-Center</a>
+                    </ul>
+                    <ul>
+                        <a href="/userlist">Help</a>
+                    </ul>
+                    <ul>
+                        <a th:href="@{/hello}">Login</a>
+                    </ul>
+                </div>
 
 
-        <!-- <a href="/home">Home</a>
-            <a id="BoardList" href="/Board/List">Community
-                <a href="">ggg</a>
-            </a>
-            <a href="/news">News</a>
-            <a href="">Client-Center</a>
-            <a href="/userlist">Help</a>
-            <a href="/loginpage">Login</a> -->
+                <!-- <a href="/home">Home</a>
+        <a id="BoardList" href="/Board/List">Community
+            <a href="">ggg</a>
+                </a>
+                <a href="/news">News</a>
+                <a href="">Client-Center</a>
+                <a href="/userlist">Help</a>
+                <a href="/loginpage">Login</a> -->
 
 
-        <marquee behavior="alternate" style="position: relative; z-index: -1;">WeleCome Green Sports</marquee>
-    </nav>
-    <div style="margin: 0 400px 50px 0;"><h1 id="clock" style="color:white; margin-top: 10px; margin-right: 10px;position: absolute;">clock</h1></div>
+                <marquee behavior="alternate" style="order: 2;">WeleCome Green Sports</marquee>
+                <div style="order: 4;">
+                    <h1 id="clock" style="text-align: center; color:white;">clock</h1>
+                    <div>
+                        <form style="float: right;" action="search" class="search-bar">
+                            <input type="text" placeholder="search-bar">
+                            <button type="submit"><i class='bx bx-search'></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div> <!-- headerLayout End -->
 
+                <div id="main" class="mainLayout">
+                    <div id="lsidebar" style="order: 1;">
+                        <div id="lsidebar1">
+                            <div class="hlog">
+                                <section class="login-form">
+                                    <form action="">
+                                        <div class="int-area">
+                                            <h1 class="logf">LOGIN</h1>
+                                            <input type="text" name="id" id="id" autocomplete="off" required>
+                                            <br><label for="id">USER NAME</label>
+                                        </div>
+                                        <div class="int-area">
+                                            <input type="password" name="pw" id="pw" autocomplete="off" required>
+                                            <br><label for="pw">PASSWORD</label>
+                                        </div>
+                                        <div class="btn-area" style="padding-bottom: 10px;">
+                                            <button type="submit"
+                                                style="width: 4cm;height: 0.8cm; font-size: 20px;font-weight: bold; padding-bottom: 10px;">login</button>
+                                        </div>
+                                    </form>
+                                    <div class="caption">
+                                        <a href="">Forgot Password?</a>
+                                        <span>/</span><br>
+                                        <a href="">Create An Account!</a>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div id="lsidebar2">
+                            <iframe width="280" height="500" frameborder=0 framespacing=0 marginheight=0 marginwidth=0
+                                scrolling=yes vspace=0 src="http://192.168.0.197:8083/chat/JeaDragon"></iframe>
+                        </div>
+                    </div>
+                    <div id="contents" style="order: 2;overflow: scroll;"></div>
+                    <div id="rsidebar" style="order: 3;">
+                        <div id="rsidebar1">
+                            <iframe width="280" height="350" frameborder=0 framespacing=0 marginheight=0 marginwidth=0
+                                vspace=0 overflow src="/User/homeList"></iframe>
+                        </div>
+                        <div id="rsidebar2">
+                            <!-- <iframe style=" width: 100%;"
+                        src="https://www.youtube.com/embed/IC735uBH_UY?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=IC735uBH_UY"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen=""></iframe> -->
+                            <!-- <iframe style=" width: 100%;"
+                            src="https://www.youtube.com/embed/-_maW0rZ98w?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=-_maW0rZ98w"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen=""></iframe> -->
+                            <img onclick="window.open('https://www.youtube.com/@shimikentv')"
+                                style="cursor: pointer;  width: 100%;" src="/img/youknowme.gif" alt="youknowme">
+                            <img onclick="window.open('https://www.wanted.co.kr/wdlist/518?country=kr&job_sort=company.response_rate_order&locations=all')"
+                                style="cursor: pointer;  width: 100%;" src="/img/coding_slave.gif"
+                                alt="wewantcodingslave">
+                            <img onclick="window.open('https://www.mma.go.kr')" style="cursor: pointer;  width: 100%;"
+                                src="/img/comeon.jpg" alt="오세요">
+                            <br><br><br><br>
+                            <b>광고문의</b><br>
+                            <b>dogsound18@gmail.com</b>
+                        </div>
+                    </div>
+
+            </div> <!-- mainLayout End -->
+        </div> <!-- wrapLayout End-->
+    
     <script>
         var Target = document.getElementById("clock");
         function clock() {
@@ -81,79 +173,6 @@
         }
         clock();
         setInterval(clock, 1000); // 1초마다 실행
-    </script>
-
-    <form action="search" class="search-bar">
-        <input type="text" placeholder="search-bar">
-        <button type="submit"><i class='bx bx-search'></i></button>
-    </form>
-    <section class="headr_menu">
-
-        <div id="main">
-            <div id="lsidebar">
-                <div id="lsidebar1">
-                    <div class="hlog">
-                        <section class="login-form">
-                            <form action="">
-                                <div class="int-area">
-                                    <h1 class="logf">LOGIN</h1>
-                                    <input type="text" name="id" id="id" autocomplete="off" required>
-                                    <br><label for="id">USER NAME</label>
-                                </div>
-                                <div class="int-area">
-                                    <input type="password" name="pw" id="pw" autocomplete="off" required>
-                                    <br><label for="pw">PASSWORD</label>
-                                </div>
-                                <div class="btn-area" style="padding-bottom: 10px;">
-                                    <button type="submit"
-                                        style="width: 4cm;height: 0.8cm; font-size: 20px;font-weight: bold; padding-bottom: 10px;">login</button>
-                                </div>
-                            </form>
-                            <div class="caption">
-                                <a href="">Forgot Password?</a>
-                                <span>/</span><br>
-                                <a href="">Create An Account!</a>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-                <div id="lsidebar2">
-                    <iframe width="280" height="500" frameborder=0 framespacing=0 marginheight=0 marginwidth=0
-                        scrolling=yes vspace=0 src="http://192.168.0.197:8083/chat/JeaDragon"></iframe>
-                </div>
-            </div>
-            <div id="contents"></div>
-            <div id="rsidebar">
-                <div id="rsidebar1">
-                    <iframe width="280" height="350" frameborder=0 framespacing=0 marginheight=0 marginwidth=0 vspace=0
-                        overflow src="/User/homeList"></iframe>
-                </div>
-                <div id="rsidebar2">
-                    <!-- <iframe style="position: relative; width: 100%;"
-                        src="https://www.youtube.com/embed/IC735uBH_UY?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=IC735uBH_UY"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen=""></iframe> -->
-                        <!-- <iframe style="position: relative; width: 100%;"
-                            src="https://www.youtube.com/embed/-_maW0rZ98w?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=-_maW0rZ98w"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen=""></iframe> -->
-                    <img onclick="window.open('https://www.youtube.com/@shimikentv')"
-                        style="cursor: pointer; position: relative; width: 100%;" src="/img/youknowme.gif" alt="youknowme">
-                    <img onclick="window.open('https://www.wanted.co.kr/wdlist/518?country=kr&job_sort=company.response_rate_order&locations=all')"
-                        style="cursor: pointer; position: relative; width: 100%;" src="/img/coding_slave.gif" alt="wewantcodingslave">
-                    <img onclick="window.open('https://www.mma.go.kr')"
-                        style="cursor: pointer; position: relative; width: 100%;" src="/img/comeon.jpg" alt="오세요">
-                    <br><br><br><br>
-                    <b>광고문의</b><br>
-                    <b>dogsound18@gmail.com</b>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <script>
         let hd$ = jQuery.noConflict(); // 다른 html jquery 랑 충돌일어나서 바꿈
         let comuEl = hd$('#comu');
 

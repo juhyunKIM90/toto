@@ -169,7 +169,7 @@ a {
 }
 
 .board_view .info dl {
-    position: relative;
+    
     display: inline-block;
     padding: 0 20px;
 }
@@ -180,7 +180,7 @@ a {
 
 .board_view .info dl::before {
     content: "";
-    position: absolute;
+    
     top: 1px;
     left: 0;
     display: block;

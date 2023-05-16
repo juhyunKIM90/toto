@@ -24,29 +24,24 @@ body{
 }
 
 .header{
-    top: 0;
-    left: 0;
-    width: 100%;
     display: flex;
-    padding: 25px 12.5%;
     background: transparent;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    z-index: 100;
+    
 }
 
-.navbar a{
-    position: relative;
+.headerLayout a{
+    
     font-size: 20px;
     color: aliceblue;
     text-decoration: none;
     font-weight: 500;
     margin-right: 30px;
 }
-.navbar a::after{
+/* .navbar a::after{
     content: '';
-    position: absolute;
+    
     left: 0;
     bottom: -6px;
     width: 100%;
@@ -56,17 +51,17 @@ body{
     transform: translateY(10px);
     opacity: 0;
     transition: .5s;
-}
-.navbar a:hover::after{
+} */
+/* .navbar a:hover::after{
     transform: translateY(0);
     opacity: 1;
-}
+} */
 
-.navbar ul{
+.headerLayout ul{
     float: left;
 }
-.navbar span{
-    position: relative;
+.headerLayout span{
+    
     font-size: 20px;
     color: aliceblue;
     text-decoration: none;
@@ -74,9 +69,9 @@ body{
     margin-right: 30px;
 }
 
-.navbar span::after{
+/* .navbar span::after{
     content: '';
-    position: absolute;
+    
     left: 0;
     bottom: -6px;
     width: 100%;
@@ -86,9 +81,9 @@ body{
     transform: translateY(10px);
     opacity: 0;
     transition: .5s;
-}
+} */
 
-.navbar span:hover{
+.headerLayout span:hover{
     transform: translateY(0);
     opacity: 1;
     cursor: pointer;
@@ -100,8 +95,6 @@ body{
     background: transparent;
     border: 2px solid aliceblue;
     border-radius: 6px;
-    display: flex;   
-    align-items: center;
 }
 .search-bar input{
     width: 100%;
@@ -132,7 +125,7 @@ body{
     color: aliceblue;
 }
 .container {
-    position: absolute;
+    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -175,7 +168,7 @@ body{
 }
 
 .container .content{
-    position: absolute;
+    
     top: 0;
     left: 0;
     width: 58%;
@@ -189,7 +182,7 @@ body{
     background-color: transparent;
 }
 .container .logreg-box{
-    position: absolute;
+    
     top: 0;
     right: 0;
     width: calc(100% - 58%);
@@ -198,7 +191,7 @@ body{
 }
 
 .logreg-box .form-box{
-    position: absolute;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -240,7 +233,7 @@ body{
 
 
 .form-box .input-box{
-    position: relative;
+    
     width: 100% auto;
     height: 50px;
     border-bottom: 2px solid aliceblue;
@@ -261,7 +254,7 @@ body{
 }
 
 .input-box label{
-    position: absolute;
+    
     top: 50%;
     left: 0;
     transform: translateY(-50%) ;
@@ -276,7 +269,7 @@ body{
 }
 
 .input-box .icon{
-    position: absolute;
+    
     top: 13px;
     right: 0;
     font-size: 30px;
@@ -338,7 +331,7 @@ body{
 
 /* start css */
 .warp{
-    position: absolute;
+    
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -358,24 +351,24 @@ body{
 }
 
 #dynamic {
-    position: relative;
+    
     display: inline-block;
 }
 
-#dynamic::after{
+/* #dynamic::after{
     content: "";
     display: block;
-    position: absolute;
+    
     top:0;
     right:-10px;
     width:4px;
     height:100%;
     background-color: white;
-}
+} */
 
-#dynamic.active::after{
+/* #dynamic.active::after{
     display: none;
-}
+} */
 #football-icon{
     text-align: center;
     font-size: 10rem;
@@ -391,14 +384,12 @@ a {
    text-align:center;
     border-top: 100px; 
    padding-top:100px; 
-   position: absolute;
+   
     left: 0%;
-    z-index: -1;
 
 }
 
 #main {
-    padding: 25px 12.5%;
     display: grid;
     grid-template-columns:1fr 3fr 1fr; 
     
@@ -425,27 +416,29 @@ a {
 
 #main #contents {
    
-    min-height: 800px; 
+    min-height: 1016px; 
     background-color:white;
     margin-left: 10px;
     margin-right: 10px;
     padding: 0px;
     border: 2px solid #5d5d5d;
+    overflow: hidden;
+    /* overflow-x: hidden;
+    overflow-y: auto; */
 }
 
 #main #lsidebar {
-    display: flex; flex-direction: column; height: 1000px;
+    height: 1000px;
     
 }
 
 #main #lsidebar #lsidebar1{
-    flex-grow: 0.1;  background: white;
+    background: white;
     border: 2px solid #5d5d5d;
     font: bold;
 }
 #main #lsidebar #lsidebar2{
     margin-top:10px;
-    flex-grow: 1;
     background: white;
     border: 2px solid #5d5d5d;
 }
