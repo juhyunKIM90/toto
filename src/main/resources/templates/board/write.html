@@ -82,6 +82,7 @@
             <h2>글쓰기</h2>
             <hr>
             <form action="/Board/Write" method="post" enctype="multipart/form-data">
+                <input hidden type="text" name="writer" id="writer" th:value="${session.user.username}">
                 <table>
                     <tr>
                         <td><b>제목<b></td>

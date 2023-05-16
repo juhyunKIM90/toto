@@ -73,7 +73,7 @@ ORDER BY
             #{ menu_id },
             #{ title },
             #{ cont },
-            'TESTER',
+            #{ writer },
             0,
             0,
             0,

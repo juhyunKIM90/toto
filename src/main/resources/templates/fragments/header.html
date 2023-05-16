@@ -56,11 +56,14 @@
                     <ul>
                         <a href="/userlist">Help</a>
                     </ul>
-                    <ul>
+                    <ul th:if="${session.user} == null">
                         <a th:href="@{/loginpage}">Login</a>
                     </ul>
-                    <ul>
+                    <ul th:if="${session.user}">
                         <a th:href="@{/hello}">MaPage</a>
+                    </ul>
+                    <ul th:if="${session.user}">
+                        <a id="logout" th:href="@{/logout}">Logout</a>
                     </ul>
                 </div>
 
@@ -215,6 +218,10 @@
                     hd$(comuEl[i]).next(".liBoard").css("display", "none");
                 }
             }
+        });
+
+        $('#logout').click(function(){
+            alert("로그아웃을 하였습니다.");
         });
 
     </script>
