@@ -9,7 +9,7 @@
 
 
 </head>
-<header  th:if="${session.user}"  class="header" th:fragment="headerFragment" style="display: flex; justify-content: center;">
+<header class="header" th:fragment="headerFragment" style="display: flex; justify-content: center;">
     <link rel="stylesheet" href="/css/kyung.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.jquery.com/jquery.min.js"></script>
@@ -76,7 +76,7 @@
 
                 <div style="order: 2; float: left;">
                     <marquee behavior="alternate">WeleCome Green Sports</marquee>
-                    <span style="text-align: right;" th:text="${session.user.username}"></span>
+                    <!-- <span style="text-align: right;" th:text="${session.user.username}"></span> -->
                 </div>
                 <div style="order: 4;">
                     <h1 id="clock" style="text-align: center; color:white;">clock</h1>
