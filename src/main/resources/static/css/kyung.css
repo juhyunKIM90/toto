@@ -95,6 +95,8 @@ body{
     background: transparent;
     border: 2px solid aliceblue;
     border-radius: 6px;
+    /* display: flex;   
+    align-items: center; */
 }
 .search-bar input{
     width: 100%;
@@ -125,7 +127,7 @@ body{
     color: aliceblue;
 }
 .container {
-    
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -138,7 +140,7 @@ body{
     margin-top: 20px;
 }
 
-.content .logo{
+.logContent .logo{
     color: black;
     font-size: 30px;
 }
@@ -167,8 +169,8 @@ body{
     transform: scale(1.8);
 }
 
-.container .content{
-    
+.container .logContent{
+    position: absolute;
     top: 0;
     left: 0;
     width: 58%;
@@ -182,7 +184,7 @@ body{
     background-color: transparent;
 }
 .container .logreg-box{
-    
+    position: absolute;
     top: 0;
     right: 0;
     width: calc(100% - 58%);
@@ -191,7 +193,7 @@ body{
 }
 
 .logreg-box .form-box{
-    
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -233,7 +235,7 @@ body{
 
 
 .form-box .input-box{
-    
+    position: relative;
     width: 100% auto;
     height: 50px;
     border-bottom: 2px solid aliceblue;
@@ -254,7 +256,7 @@ body{
 }
 
 .input-box label{
-    
+    position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%) ;
@@ -269,7 +271,7 @@ body{
 }
 
 .input-box .icon{
-    
+    position: absolute;
     top: 13px;
     right: 0;
     font-size: 30px;
@@ -331,7 +333,7 @@ body{
 
 /* start css */
 .warp{
-    
+    /* position: absolute; */
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -351,24 +353,24 @@ body{
 }
 
 #dynamic {
-    
+    position: relative;
     display: inline-block;
 }
 
-/* #dynamic::after{
+#dynamic::after{
     content: "";
     display: block;
-    
+    position: absolute;
     top:0;
     right:-10px;
     width:4px;
     height:100%;
     background-color: white;
-} */
+}
 
-/* #dynamic.active::after{
+#dynamic.active::after{
     display: none;
-} */
+}
 #football-icon{
     text-align: center;
     font-size: 10rem;
