@@ -50,18 +50,18 @@
 
            <div class="logreg-box">
                <div class="form-box login">
-                    <form th:action="@{/loginpage}" method="post">
+                    <form th:action="@{/loginthe}" method="post">
                        <h2>Sign In</h2>
                    
                        <div class="input-box">
                            <span class="icon"><i class='bx bx-envelope'></i></span>
-                           <input type="text"  name="username"/>
+                           <input type="text" id="userid"  name="userid"/>
                            <label>Userid</label>
                        </div>
 
                        <div class="input-box">
                            <span class="icon"><i class='bx bx-lock-alt' ></i></span>
-                           <input type="password" name="password"/>
+                           <input type="password" id="passwd" name="passwd"/>
                            <label>Password</label>
                        </div>
 

@@ -1,6 +1,7 @@
 package com.example.toto.user.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +30,11 @@ public class UserService {
     public void deleteUser(String userid) {
         userMapper.deleteUser(userid);
     }
+
+    public UserVo getUserLog(Map<String, Object> map) {
+        UserVo userVo = userMapper.getUserLog(map);
+        return userVo;
+    }
+
 
 }

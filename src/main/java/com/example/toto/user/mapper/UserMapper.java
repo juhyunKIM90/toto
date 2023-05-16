@@ -1,6 +1,7 @@
 package com.example.toto.user.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,7 @@ public interface UserMapper {
     UserVo getUser(String userid);
 
     void deleteUser(String userid);
+
+    UserVo getUserLog(Map<String, Object> map);
 
 }

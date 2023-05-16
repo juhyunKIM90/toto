@@ -1,11 +1,26 @@
 package com.example.toto;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.toto.user.service.UserService;
+import com.example.toto.user.vo.UserVo;
 
 @Controller
 public class HomeController {
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/")
     public String home(){
         // return "home";
@@ -19,8 +34,28 @@ public class HomeController {
    }
    @GetMapping("/loginpage")
    public String loginpage(){
+   return "loginpage";
+   }
+   @PostMapping("/loginthe")
+   public ModelAndView loginthe(
+            @RequestParam Map<String, Object>map ,HttpSession session
+        ){
+    ModelAndView mv = new ModelAndView();
+    System.out.println("userid:" + map.get("userid"));
+    System.out.println("passwd:" + map.get("passwd"));
 
-    return "loginpage";
+    UserVo user = userService.getUserLog(map);
+    // UserVo  user = userService.getUser( map.get("userid") );  
+
+    System.out.println("유저:" + user);
+    if(user != null){
+        session.setAttribute("user", user);
+        mv.setViewName("redirect:/home");
+    } else {
+        mv.setViewName("loginpage");
+    }
+
+    return mv;
    }
 
    @GetMapping("/login")

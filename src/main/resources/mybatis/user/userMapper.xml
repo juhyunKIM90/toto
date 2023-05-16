@@ -21,6 +21,19 @@
    	    WHERE  USERID = #{ userid }
     </select>
 
+    <select id="getUserLog"
+            parameterType="map"
+            resultType="com.example.toto.user.vo.UserVo">
+        SELECT  USERID
+   	         , PASSWD
+   	         , USERNAME
+   	         , EMAIL
+   	         , TO_CHAR(INDATE, 'YYYY-MM-DD HH24:MI:SS')  INDATE
+   	    FROM   TUSER 
+   	    WHERE  USERID = #{ userid }
+          AND  PASSWD = #{ passwd }
+    </select>
+
     <insert id="insertUser">
 
         INSERT INTO TUSER (

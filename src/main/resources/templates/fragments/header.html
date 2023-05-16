@@ -9,7 +9,7 @@
 
 
 </head>
-<header class="header" th:fragment="headerFragment" style="display: flex; justify-content: center;">
+<header  th:if="${session.user}"  class="header" th:fragment="headerFragment" style="display: flex; justify-content: center;">
     <link rel="stylesheet" href="/css/kyung.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.jquery.com/jquery.min.js"></script>
@@ -57,7 +57,10 @@
                         <a href="/userlist">Help</a>
                     </ul>
                     <ul>
-                        <a th:href="@{/hello}">Login</a>
+                        <a th:href="@{/loginpage}">Login</a>
+                    </ul>
+                    <ul>
+                        <a th:href="@{/hello}">MaPage</a>
                     </ul>
                 </div>
 
@@ -71,8 +74,10 @@
                 <a href="/userlist">Help</a>
                 <a href="/loginpage">Login</a> -->
 
-
-                <marquee behavior="alternate" style="order: 2;">WeleCome Green Sports</marquee>
+                <div style="order: 2; float: left;">
+                    <marquee behavior="alternate">WeleCome Green Sports</marquee>
+                    <span style="text-align: right;" th:text="${session.user.username}"></span>
+                </div>
                 <div style="order: 4;">
                     <h1 id="clock" style="text-align: center; color:white;">clock</h1>
                     <div>
