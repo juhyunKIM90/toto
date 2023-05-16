@@ -39,7 +39,8 @@ body{
     font-weight: 500;
     margin-right: 30px;
 }
-/* .navbar a::after{
+/* 
+.navbar a::after{
     content: '';
     
     left: 0;
@@ -50,8 +51,9 @@ body{
     border-radius: 5px;
     transform: translateY(10px);
     opacity: 0;
-    transition: .5s; */
+    transition: .5s; 
 }
+*/
 .navbar a:hover::after{
     transform: translateY(0);
     opacity: 1;
