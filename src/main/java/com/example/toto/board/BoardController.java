@@ -95,4 +95,29 @@ public class BoardController {
         boardService.deleteBoard(idx);
         return mv;
     }
+
+
+
+    // -----------------------------------------------------------------------------------------
+
+    @RequestMapping("/ImageBoard/List")
+    public ModelAndView imageBoard() {
+        ModelAndView mv = new ModelAndView("board/imageList");
+        
+        String menu_id = "MENO04";
+
+        // 메뉴
+        MenuVo menu = menuService.getMenu(menu_id);
+
+
+
+        // BoardList - 게시글 목록
+        List<BoardVo> imageList = boardService.getBoardList(menu_id);
+
+        mv.addObject("imageList", imageList);
+        mv.addObject("menu", menu);
+        //System.out.println("nope" + menuList);
+        return mv;
+    }
+
 }

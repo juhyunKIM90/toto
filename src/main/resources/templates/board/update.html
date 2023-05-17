@@ -138,12 +138,8 @@
             alert('내용을을 작성하지 않았습니다.');
             return false;
         }
-        if(title_text == '[(${boardVo.title})]') {
-            alert('제목에 변경사항이 없습니다.');
-            return false;
-        }
-        if(textar_text == '[(${boardVo.cont})]') {
-            alert('내용에 변경사항이 없습니다.');
+        if(title_text == '[(${boardVo.title})]' && textar_text == '[(${boardVo.cont})]') {
+            alert('변경사항이 없습니다.');
             return false;
         }
     }

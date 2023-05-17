@@ -41,8 +41,14 @@
                         <a id="comu">Community</a>
                         <div id="boardDiv" style="display: none;">
                             <li th:each="menu : ${#servletContext.getAttribute('menuList')}">
+                                <th:blcok th:if="${menu.menu_name != '갤러리'}">
                                 <a style="text-shadow:1px 1px 1px #000;"
                                     th:href="@{/Board/List(menu_id=${menu.menu_id})}" th:text="${menu.menu_name}"></a>
+                                </th:blcok>
+                                <th:blcok th:if="${menu.menu_name == '갤러리'}">
+                                    <a style="text-shadow:1px 1px 1px #000;"
+                                    th:href="@{/ImageBoard/List}" th:text="${menu.menu_name}"></a>
+                                </th:blcok>
                             </li>
                         </div>
                     </ul>

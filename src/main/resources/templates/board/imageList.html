@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="/css/common.css"> -->
+    <style>
+        table {
+            width: 90%; margin: 5%; border-spacing: 5px; margin-top: 1%;
+        }
+        table, tr, th, td { border: 1px solid black; border: 1px solid gray;
+      border-radius: 15px;}
+      tr {
+        margin: 80px;
+      }  
+      
+      td {       
+            border-radius: 15px;
+        }
+        .board td:hover { cursor: pointer; color: #2F73C0;}
+        .boardt td:hover a { cursor: pointer; color: red;}
+    </style>
+    
+</head>
+<body>
+    <div th:replace="~{/fragments/header :: headerFragment}"></div>
+    <div hidden id="wrap">
+
+        <div id="content">
+            <h2>갤러리</h2>
+            <th:block th:if="${session.user}">
+                <span th:if="${session.user.userid == 'admin'}">관리자만보임 : 반드시 게시판이름이 "갤러리"이여야함</span>
+                
+            </th:block>
+        </div>
+        
+    </div>
+</body>
+<script>
+    document.querySelector('#contents').append(document.querySelector('#content'));
+</script>
+</html>
