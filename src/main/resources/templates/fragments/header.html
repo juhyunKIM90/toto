@@ -219,10 +219,12 @@
                 }
             }
         });
-
-        $('#logout').click(function(){
-            alert("로그아웃을 하였습니다.");
-        });
+        const logoutEl = $('#logout');
+        if(logoutEl != null ){
+            logoutEl.click(function(){
+                alert("로그아웃을 하였습니다.");
+            });
+        }
 
     </script>
 

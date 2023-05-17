@@ -36,9 +36,11 @@
             <p id="hidcont" hidden th:text="${boardVo.cont}"></p>
             <div id="cont"></div>
             <hr><br>
-            <th:block th:if="${ session.user.username == boardVo.writer}">
-                <input type="button" th:onclick="|location.href='@{UpdateForm(idx=${param.idx},menu_id=${param.menu_id})}'|" value="수정">
-                <input type="button" value="삭제">
+            <th:block th:if="${session.user}">
+                <th:block th:if="${session.user.username == boardVo.writer}">
+                    <input type="button" th:onclick="|location.href='@{UpdateForm(idx=${param.idx},menu_id=${param.menu_id})}'|" value="수정">
+                    <input type="button" value="삭제">
+                </th:block>
             </th:block>
             <input type="button" th:onclick="|location.href='@{List(menu_id=${param.menu_id})}'|" value="목록">
         </div>
@@ -60,5 +62,6 @@
             return;
         }
     });
+    // alert('[[${session.user}]]');
 </script>
 </html>
