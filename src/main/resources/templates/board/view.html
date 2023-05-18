@@ -37,12 +37,17 @@
             <div id="cont"></div>
             <hr><br>
             <th:block th:if="${session.user}">
-                <th:block th:if="${session.user.username == boardVo.writer}">
+                <th:block th:if="${session.user.username == boardVo.writer or session.user.username == '관리자'}">
                     <input type="button" th:onclick="|location.href='@{UpdateForm(idx=${param.idx},menu_id=${param.menu_id})}'|" value="수정">
                     <input type="button" value="삭제">
                 </th:block>
             </th:block>
-            <input type="button" th:onclick="|location.href='@{List(menu_id=${param.menu_id})}'|" value="목록">
+            <th:block  th:if="${boardVo.menu_id == 'MENU04'}">
+                <input type="button" th:onclick="|location.href='@{/ImageBoard/List}'|" value="목록">
+            </th:block>
+            <th:block th:if="${boardVo.menu_id != 'MENU04'}">
+                <input type="button" th:onclick="|location.href='@{List(menu_id=${param.menu_id})}'|" value="목록">
+            </th:block>
         </div>
     </div>
     

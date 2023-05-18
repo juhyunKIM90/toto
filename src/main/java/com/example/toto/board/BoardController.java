@@ -51,7 +51,12 @@ public class BoardController {
     
     @RequestMapping("/Board/Write")
     public ModelAndView write(BoardVo boardVo) {
-        ModelAndView mv = new ModelAndView("redirect:/Board/List?menu_id=" + boardVo.getMenu_id() );
+        ModelAndView mv = new ModelAndView();
+        if( boardVo.getMenu_id().equals("MENU04")){
+            mv.setViewName("redirect:/ImageBoard/List" );
+        } else{
+            mv.setViewName("redirect:/Board/List?menu_id=" + boardVo.getMenu_id() );
+        }
         
         // 게시글 등록
         boardService.insertBoard(boardVo);
@@ -104,7 +109,7 @@ public class BoardController {
     public ModelAndView imageBoard() {
         ModelAndView mv = new ModelAndView("board/imageList");
         
-        String menu_id = "MENO04";
+        String menu_id = "MENU04";
 
         // 메뉴
         MenuVo menu = menuService.getMenu(menu_id);
